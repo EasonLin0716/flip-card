@@ -1,0 +1,523 @@
+@mixin nb-m {
+    @media all and (max-width: 1536px) {
+        @content;
+    }
+}
+@mixin pc-s {
+    @media all and (max-width: 1280px) {
+        @content;
+    }
+}
+@mixin ipad-m {
+    @media all and (max-width: 1024px) {
+        @content;
+    }
+}
+@mixin ipad-s {
+    @media all and (max-width: 768px) {
+        @content;
+    }
+}
+@mixin phone-l {
+    @media all and (max-width: 414px) {
+        @content;
+    }
+}
+@mixin phone-m {
+    @media all and (max-width: 375px) {
+        @content;
+    }
+}
+$gameBoardBgColor: #e7f3f7;
+$challengeBgColor: #ff0;
+$b-DarkBlue-700: #353d49;
+$b-DarkBlue-800: #2B3340;
+$b-DarkBlue-900:#232A35;
+$b-Blue-300: #A7C3FF;
+$b-Blue-500: #6596FF;
+$b-Blue-600: #3978FF;
+$b-Blue-700: #2369FF;
+$b-PinkRed-700: #FA1E50;
+.content {
+    &-memory {
+        background-color: $gameBoardBgColor;
+        &__bg {
+            position: absolute;
+            &-human-drink-1, &-human-drink-2 {
+                max-width: 280px;
+                bottom: 120px;
+                @include ipad-s {
+                    max-width: 180px;
+                    bottom: 168px;
+                }
+                @include ipad-s {
+                    max-width: 144px;
+                }
+                @include phone-l {
+                    bottom: 140px;
+                }
+            }
+            &-human-drink-1 {
+                transform: scaleX(-1) rotate(15deg);
+                left: -72px;
+                @include ipad-s {
+                    left: 0;
+                }
+                @include phone-l {
+                    left: -16px;
+                }
+            }
+            &-human-drink-2 {
+                transform: rotate(15deg);
+                right: -72px;
+                @include ipad-s {
+                    right: 0;
+                }
+            }
+            &-text-list {
+                max-width: 33px;
+            }
+            &-sticker-right {
+                position: relative;
+                top: 6px;
+                left: -1px;
+                z-index: 20;
+            }
+            &-sticker-left {
+                position: relative;
+                z-index: 20;
+                right: -2px;
+                @include phone-l {
+                    height: 160px;
+                }
+            }
+            &-plastic-can-1, &-plastic-can-2 {
+                bottom: -12px;
+                width: 261px;
+                @include pc-s {
+                    width: 230px;
+                }
+            }
+            &-cups-2, &-cups-3 {
+                bottom: 58px;
+            }
+            &-plastic-can-1 {
+                left: -594px;
+                opacity: 0;
+                @include pc-s {
+                    left: -510px;
+                }
+                @include ipad-m {
+                    display: none;
+                }
+            }
+            &-plastic-can-2 {
+                left: -307px;
+                opacity: 0;
+                @include pc-s {
+                    left: -260px;
+                }
+                @include ipad-s {
+                    display: none;
+                }
+            }
+            &-machine {
+                right: -363px;
+                bottom: 41px;
+                opacity: 0;
+                @include ipad-s {
+                    display: none;
+                }
+            }
+            &-cups-1 {
+                right: -450px;
+                bottom: 39px;
+                opacity: 0;
+                @include pc-s {
+                    display: none;
+                }
+            }
+            &-cups-2 {
+                right: -523px;
+                opacity: 0;
+                @media all and (max-width: 1688px) {
+                    display: none;
+                }
+            }
+            &-cups-3 {
+                max-width: 62px;
+                right: -592px;
+                opacity: 0;
+                @media all and (max-width: 1832px) {
+                    display: none;
+                }
+            }
+            &-cloud-drinkShop {
+                width: 100%;
+                position: absolute;
+                bottom: -1px;
+                z-index: 20;
+                pointer-events: none;
+            }
+        }
+        &__text-list {
+            background-color: $gameBoardBgColor;
+            text-align: center;
+            z-index: 20;
+            vertical-align: middle;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            top: 0px;
+            min-width: 68px;
+            // 修正獎牌overflow問題
+            height: 131px;
+            position: relative;
+            top: -6px;
+            img {
+                width: 36px;
+            }
+        }
+        &__intro {
+            color: $b-DarkBlue-700;
+            margin-bottom: 40px;
+            @include nb-m {
+                margin-bottom: 32px;
+            }
+        }
+        &__play {
+            max-width: 768px;
+            max-height: 703px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            @include nb-m {
+                max-width: 640px;
+                max-height: 640px;
+            }
+            @include pc-s {
+                max-width: 540px;
+                max-height: 580px;
+            }
+            @include ipad-s {
+                max-width: 440px;
+            }
+            @include phone-l {
+                max-width: 343px;
+            }
+            &-game {
+                border-radius: 16px;
+                background-color: $b-Blue-600;
+                margin: 0 auto;
+                height: 959px;
+                padding-top: 24px;
+                @include nb-m {
+                    height: 900px;
+                }
+                @include pc-s {
+                    height: 803px;
+                }
+                @include ipad-s {
+                    padding: 12px 16px 0 16px;
+                }
+                &__timer {
+                    display: flex;
+                    max-width: 246px;
+                    justify-content: space-between;
+                    font-size: 18px;
+                    padding: 10px 47px;
+                    color: #fff;
+                    background-color: $b-DarkBlue-900;
+                    border-radius: 9.4px;
+                    margin: 0 auto 21px auto;
+                    @include pc-s {
+                        margin-bottom: 16px;
+                    }
+                    @include ipad-s {
+                        max-width: 137px;
+                        font-size: 13px;
+                        padding: 8px 16px;
+                        margin-bottom: 12px;
+                    }
+                }
+                &__section {
+                    flex-wrap: wrap;
+                    display: flex;
+                    justify-content: space-between;
+                    // display: grid;
+                    // grid-template-columns: repeat(4, 1fr);
+                    // gap: 24px;
+                    // justify-content: center;
+                    max-width: 640px;
+                    margin: 0 auto;
+                    width: 100%;
+                    background-color: $gameBoardBgColor;
+                    padding: 24px 24px 4px;
+                    border-radius: 8px;
+                    @include nb-m {
+                        max-width: 540px;
+                        padding: 20px 16px 0 16px;
+                    }
+                    @include pc-s {
+                        max-width: 460px;
+                    }
+                    @include ipad-s {
+                        padding: 20px 16px 0 16px;
+                    }
+                    img {
+                        width: 100%;
+                    }
+                    
+                    .victory-state {
+                        grid-column-start: 1;
+                        grid-column-end: -1;
+                        text-align: center;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                    }
+                    
+                    .card {
+                        width: 22.5%;
+                        margin-bottom: 20px;
+                        background-color: $b-PinkRed-700;    
+                        background-size: 100% 100%;
+                        background-position: center;
+                        background-repeat: no-repeat, no-repeat;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        border-radius: 8px;
+                        padding: 6px;
+                        cursor: pointer;
+                        border: 6px solid transparent;
+                        animation: flipUp .5s forwards;
+                        @include ipad-s {
+                            width: 30%;
+                            margin-bottom: 12px;
+                        }
+                        @include phone-l {
+                            border: 4px solid transparent;
+                        }
+                        img {
+                            opacity: 1;
+                            transition: opacity .5s;
+                        }
+                        &.down {
+                            animation: flipDown .5s forwards;
+                            img {
+                            opacity: 0;
+                            }
+                        }
+                        &.matched {
+                            border: 6px solid $b-Blue-700;
+                            animation: matching 1s forwards;
+                        }
+                    }
+                    
+                    @keyframes flipDown {
+                    0% {
+                        background-color: $b-Blue-700;
+                        transform: rotateY(0deg);
+                    }
+                    100% {
+                        background-color: $b-PinkRed-700;
+                        transform: rotateY(180deg);
+                    }
+                    }
+                    
+                    @keyframes flipUp {
+                    0% {
+                        background-color: $b-PinkRed-700;
+                        transform: rotateY(180deg);
+                    }
+                    100% {
+                        background-color: $b-Blue-700;
+                        transform: rotateY(0deg);
+                    }
+                    }
+                    
+                    @keyframes matching {
+                    0% {
+                        background-color: $b-Blue-300;
+                    }
+                    50% {
+                        background-color: $b-Blue-300;
+                    }
+                    100% {
+                        background-color: $b-Blue-700;
+                    }
+                    }
+                }
+                &__btn {
+                    position: relative;
+                    display: block;
+                    background-color: $challengeBgColor;
+                    margin: 48px auto 0 auto;
+                    font-size: 36px;
+                    font-weight: bold;
+                    padding: 12px 40px;
+                    border-radius: 36.5px;
+                    background-color: #ff0;
+                    border: 0;
+                    box-shadow: 0 10px 0 0 #eac71b;
+                    cursor: pointer;
+                    transition: all .2s ease-out; 
+                    top: 0;
+                    color: $b-DarkBlue-800;
+                    @include nb-m {
+                        font-size: 32px;
+                        padding: 10px 36px;
+                        margin-top: 32px;
+                    }
+                    @include pc-s {
+                        margin-top: 24px;
+                    }
+                    @include ipad-s {
+                        font-size: 24px;
+                        padding: 10px 29px;
+                        box-shadow: 0 7px 0 0 #eac71b;
+                    }
+                    &:hover {
+                        box-shadow: 0 4px 0 0 #eac71b;
+                        top: 9px;
+                        @include ipad-s {
+                            top: 4px;
+                        }
+                    }
+                    &--disabled {
+                        pointer-events: none;
+                        background-color: #ffff80;
+                        color: #eac71b;
+                        box-shadow: 0 12px 0 0 #fced30;
+                        @include ipad-s {
+                            box-shadow: 0 3px 0 0 #eac71b;
+                        }
+                    }
+                }
+            }
+        }
+        &__table {
+            position: relative;
+            &__inner {
+                background-color: $b-Blue-300;
+                height: 104px;    
+                bottom: 0;
+                position: absolute;
+                width: 100%;
+                
+            }
+        }
+        &__board {
+            background-color: $b-Blue-500;
+            height: 740px;
+            position: relative;
+            transition: all .2s ease-out;
+            @include ipad-s {
+                height: 640px;
+            }
+            @include phone-l {
+                height: 540px;
+            }
+            &-scroll {
+                max-width: 950px;
+                margin: 0 auto;
+                display: flex;
+                align-items: center;
+                position: relative;
+                top: 100px;
+                z-index: 20;
+                @include ipad-m {
+                    max-width: 840px;
+                }
+                @include ipad-s {
+                    top: 110px;
+                    padding-left: 16px;
+                }
+                @include phone-l {
+                    top: 80px;
+                    margin-left: 16px;
+                }
+                @include phone-m {
+                    margin-left: 0;
+                }
+                &__cards {
+                    flex-grow: 1;
+                    display: flex;
+                    height: 180px;
+                    background-color: $gameBoardBgColor;
+                    position: relative;
+                    padding: 27px 0 34px 0;    
+                    overflow: hidden;
+                    max-width: 950px - 145px - 16px;
+                    @include phone-l {
+                        height: 160px;
+                        padding: 18px 0 22px 0;
+                    }
+                    .swiper{
+                        width: 90%;
+                    }
+                    .swiper-pagination {
+                        bottom: 10px;
+                        left: 50%;
+                        transition: all .2s ease-out;
+                        @include phone-l {
+                            bottom: 8px;
+                        }
+                        .swiper-pagination-bullet {
+                            opacity: 1;
+                            width: 10px;
+                            height: 10px;
+                            margin: 0 4px;
+                            background-color: #f3f9fb;
+                            @include phone-l {
+                                width: 5px;
+                                height: 5px;
+                            }
+                        }
+                        .swiper-pagination-bullet-active {
+                            width: 38px;
+                            border-radius: 5.8px;
+                            background-color: #fff;
+                            @include phone-l {
+                                width: 16px;
+                                height: 5px;
+                            }
+                        }
+                    }
+                    &__item {
+                        background-color: #fff;
+                        padding: 12px 16px;
+                        border-radius: 10px;
+                        position: relative;
+                        div {
+                            display: flex;
+                            justify-content: space-between;
+                        }
+                        img {
+                            position: absolute;
+                            right: 16px;
+                            top: -6px;
+                            max-width: 27px;
+                        }
+                        p {
+                            font-weight: bold;
+                            color: $b-DarkBlue-800;
+                        }
+                        hr {
+                            border-top: 1px solid $b-DarkBlue-800;
+                            margin: 8px 0 7px 0;
+                        }
+                        span {
+                            display: block;
+                            font-size: 14px;
+                            color: $b-DarkBlue-800;
+                            margin-top: 28px;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+}
