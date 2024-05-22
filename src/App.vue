@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import cardGame from './components/cardGame.vue'
+import cardGame from './components/CardGame.vue'
 </script>
 
 <template>

@@ -19,15 +19,15 @@
         <button v-if="playState === 1" class="content-memory__play-game__btn content-memory__play-game__btn--disabled"
             @click="startGame">挑戰中...</button>
         <button v-else class="content-memory__play-game__btn" @click="startGame">開始遊戲</button>
-        <gameResultModal ref="gameResultModal" :counter="counter" @getCoupon="handleGetCoupon" />
-        <loseGameModal ref="loseGameModal" @replay="startGame" />
+        <GameResultModal ref="GameResultModal" :counter="counter" @getCoupon="handleGetCoupon" />
+        <LoseGameModal ref="LoseGameModal" @replay="startGame" />
     </div>
 </template>
 
 <script>
 const IMG_URL = '/'
-import gameResultModal from './gameResultModal.vue';
-import loseGameModal from './loseGameModal.vue';
+import GameResultModal from './GameResultModal.vue';
+import LoseGameModal from './LoseGameModal.vue';
 // List of font awesome codes used as illustrations, can be modified
 const icons = [
     'chick.png',
@@ -64,7 +64,7 @@ const GAME_LIMIT_MINUTE = 5;
 
 export default {
     name: 'cardGame',
-    components: { gameResultModal, loseGameModal },
+    components: { GameResultModal, LoseGameModal },
     data() {
         return {
             timer: null,
@@ -180,7 +180,7 @@ export default {
         handleWin() {
             this.playState = 0;
             this.stopCounter();
-            this.$refs.gameResultModal.openModal();
+            this.$refs.GameResultModal.openModal();
             const customEvt = new CustomEvent('winCardGame', {});
             document.dispatchEvent(customEvt);
         },
@@ -188,7 +188,7 @@ export default {
             this.playState = 0;
             this.stopCounter();
             this.counter = `${GAME_LIMIT_MINUTE}:00.00`
-            this.$refs.loseGameModal.openModal(3);
+            this.$refs.LoseGameModal.openModal(3);
         },
         startCounter() {
             const count = () => {
