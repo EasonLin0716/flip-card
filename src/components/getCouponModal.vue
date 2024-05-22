@@ -48,9 +48,7 @@ export default {
         },
         openPrizeRecordModal(e) {
             this.closeModal();
-            // 開啟根層中獎modal
-            const customEvt = new CustomEvent('openPrizeRecordModal', {});
-            document.dispatchEvent(customEvt);
+            // TODO: 開啟根層中獎modal
         },
         openModal(type = 1, couponNum = 1, currentStage = '1') {
             this.setIsGotAllCoupons();

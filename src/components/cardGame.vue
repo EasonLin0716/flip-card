@@ -9,9 +9,8 @@
         <div class="content-memory__play-game__section">
             <div v-for="(card, index) in cards" :key="index"
                 :class="[{ 'down': card.down && !card.matched, 'up': !card.down, 'matched': card.matched }, ' card']"
-                :style="card.down && !card.matched ? cardBackground : {}"
-                @click="handleClick(index)">
-                <img v-if="card.down" :src="cardBackImgUrl" alt="牌背">
+                :style="card.down && !card.matched ? cardBackground : {}" @click="handleClick(index)">
+                <img v-if="card.down" :src="cardBackImgUrl" alt="牌背" width="104" height="104">
                 <img v-else :src="cardImgPath + card.icon" alt="牌背">
             </div>
         </div>
@@ -28,6 +27,8 @@
 const IMG_URL = '/'
 import GameResultModal from './GameResultModal.vue';
 import LoseGameModal from './LoseGameModal.vue';
+// 時間限制(分鐘)
+const GAME_LIMIT_MINUTE = 5;
 // List of font awesome codes used as illustrations, can be modified
 const icons = [
     'chick.png',
@@ -43,7 +44,7 @@ const checkMatch = (comparing, compared) => {
     return comparing.icon === compared.icon
 };
 
-function shuffle(array) {
+const shuffle = array => {
     const length = array == null ? 0 : array.length;
     if (!length) {
         return [];
@@ -58,9 +59,7 @@ function shuffle(array) {
         result[index] = value;
     }
     return result;
-}
-// 時間限制(分鐘)
-const GAME_LIMIT_MINUTE = 5;
+};
 
 export default {
     name: 'cardGame',
@@ -71,10 +70,10 @@ export default {
             timeBegan: null,
             counter: '0:00.00',
             cards: [],
-            cardBackImgUrl: 'https://fakeimg.pl/300x300',
+            cardBackImgUrl: 'https://fakeimg.pl/300x300/1F3A52',
             cardImgPath: `${IMG_URL}`,
-            cardBackImgPath1: `https://fakeimg.pl/300x300/ff0000/000`,
-            cardBackImgPath2: `https://fakeimg.pl/300x300/00ff00/fff`,
+            cardBackImgPath1: `https://fakeimg.pl/300x300/1F3A52/000`,
+            cardBackImgPath2: `https://fakeimg.pl/300x300/1F3A52/fff`,
             // 0: 待開始, 1: 遊戲中
             playState: 0,
             // 比較
@@ -117,14 +116,7 @@ export default {
     },
     methods: {
         handleGetCoupon() {
-            const customEvt = new CustomEvent('getTicket', {
-                detail: {
-                    gameType: '1',
-                    modalType: 1,
-                    couponNum: 1,
-                },
-            });
-            document.dispatchEvent(customEvt);
+            // nothing
         },
         startGame() {
             this.cardsShuffle();
@@ -181,8 +173,6 @@ export default {
             this.playState = 0;
             this.stopCounter();
             this.$refs.GameResultModal.openModal();
-            const customEvt = new CustomEvent('winCardGame', {});
-            document.dispatchEvent(customEvt);
         },
         handleLose() {
             this.playState = 0;

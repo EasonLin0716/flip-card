@@ -107,23 +107,11 @@ export default {
             this.$emit('getCoupon');
         },
         handleShareGameResultToFacebook() {
-            const customEvt = new CustomEvent('shareGameResultToFacebook', {
-                detail: {
-                    counter: this.counter
-                },
-            });
-            document.dispatchEvent(customEvt);
+            // should be removed
         },
         handleRenderNewRecordToBoard(level) {
             if (!level) return;
-            const customEvt = new CustomEvent('renderNewRecordToBoard', {
-                detail: {
-                    counter: this.counter,
-                    nickName: this.nickName,
-                    level,
-                },
-            });
-            document.dispatchEvent(customEvt);
+            // TODO: set new record
         },
         openModal() {
             modal.setOptions({ showClose: false, modalClass: 'content-modal', clickClose: false, });

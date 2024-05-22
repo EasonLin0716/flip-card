@@ -71,7 +71,7 @@
 }
 
 $gameBoardBgColor: #e7f3f7;
-$challengeBgColor: #ff0;
+$challengeBgColor: #2C5364;
 $b-DarkBlue-20: #E9EAEB;
 $b-DarkBlue-300: #80858C;
 $b-DarkBlue-400: #6A7079;
@@ -80,13 +80,21 @@ $b-DarkBlue-700: #353d49;
 $b-DarkBlue-800: #2B3340;
 $b-DarkBlue-900:#232A35;
 $b-Blue-100: #D3E1FF;
-$b-Blue-300: #A7C3FF;
 $b-Blue-500: #6596FF;
 $b-Blue-600: #3978FF;
-$b-Blue-700: #2369FF;
-$b-PinkRed-700: #FA1E50;
+$Blue-200: #1A2980;
+$Blue-300: #0F2027;
+$Blue-400: #3c5969;
+$Blue-500: #4a6b7c;
+$Blue-800: #2C5364;
+$Blue-700: #1F3A52;
 $b-BlueGray-300: #F2F5F9;
 $b-BlueGray-500: #E3E8F0;
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
 .content {
     &-memory {
         background-color: $gameBoardBgColor;
@@ -255,17 +263,10 @@ $b-BlueGray-500: #E3E8F0;
                 max-width: 343px;
             }
             &-game {
-                border-radius: 16px;
-                background-color: $b-Blue-600;
+                background: linear-gradient(to bottom, #00416a, #2c5364, #3a6073, #667db6);
                 margin: 0 auto;
-                height: 959px;
                 padding-top: 24px;
-                @include nb-m {
-                    height: 900px;
-                }
-                @include pc-s {
-                    height: 803px;
-                }
+                min-height: 100vh;
                 @include ipad-s {
                     padding: 12px 16px 0 16px;
                 }
@@ -290,33 +291,27 @@ $b-BlueGray-500: #E3E8F0;
                     }
                 }
                 &__section {
-                    flex-wrap: wrap;
-                    display: flex;
-                    justify-content: space-between;
-                    // display: grid;
-                    // grid-template-columns: repeat(4, 1fr);
-                    // gap: 24px;
-                    // justify-content: center;
+                    display: grid;
+                    grid-template-columns: repeat(4, 1fr);
+                    gap: 24px;
+                    justify-content: center;
                     max-width: 640px;
                     margin: 0 auto;
                     width: 100%;
                     background-color: $gameBoardBgColor;
-                    padding: 24px 24px 4px;
+                    padding: 24px;
                     border-radius: 8px;
-                    @include nb-m {
-                        max-width: 540px;
-                        padding: 20px 16px 0 16px;
-                    }
-                    @include pc-s {
-                        max-width: 460px;
-                    }
                     @include ipad-s {
-                        padding: 20px 16px 0 16px;
+                        max-width: 520px;
+                        grid-template-columns: repeat(3, 1fr);
+                    }
+                    @include ipad-xs {
+                        padding: 12px;
+                        gap: 12px;
                     }
                     img {
                         width: 100%;
                     }
-                    
                     .victory-state {
                         grid-column-start: 1;
                         grid-column-end: -1;
@@ -325,11 +320,9 @@ $b-BlueGray-500: #E3E8F0;
                         justify-content: space-between;
                         align-items: center;
                     }
-                    
                     .card {
-                        width: 22.5%;
-                        margin-bottom: 20px;
-                        background-color: $b-PinkRed-700;    
+                        aspect-ratio: 1 / 1;
+                        background-color: $Blue-700;    
                         background-size: 100% 100%;
                         background-position: center;
                         background-repeat: no-repeat, no-repeat;
@@ -341,16 +334,11 @@ $b-BlueGray-500: #E3E8F0;
                         cursor: pointer;
                         border: 6px solid transparent;
                         animation: flipUp .5s forwards;
-                        @include ipad-s {
-                            width: 30%;
-                            margin-bottom: 12px;
-                        }
-                        @include phone-l {
-                            border: 4px solid transparent;
-                        }
                         img {
                             opacity: 1;
                             transition: opacity .5s;
+                            max-width: 100%;
+                            height: auto;
                         }
                         &.down {
                             animation: flipDown .5s forwards;
@@ -359,61 +347,59 @@ $b-BlueGray-500: #E3E8F0;
                             }
                         }
                         &.matched {
-                            border: 6px solid $b-Blue-700;
                             animation: matching 1s forwards;
                         }
                     }
                     
                     @keyframes flipDown {
                     0% {
-                        background-color: $b-Blue-700;
+                        background-color: $Blue-800;
                         transform: rotateY(0deg);
                     }
                     100% {
-                        background-color: $b-PinkRed-700;
+                        background-color: $Blue-700;
                         transform: rotateY(180deg);
                     }
                     }
                     
                     @keyframes flipUp {
                     0% {
-                        background-color: $b-PinkRed-700;
+                        background-color: $Blue-700;
                         transform: rotateY(180deg);
                     }
                     100% {
-                        background-color: $b-Blue-700;
+                        background-color: $Blue-800;
                         transform: rotateY(0deg);
                     }
                     }
                     
                     @keyframes matching {
                     0% {
-                        background-color: $b-Blue-300;
+                        background-color: $Blue-300;
                     }
                     50% {
-                        background-color: $b-Blue-300;
+                        background-color: $Blue-300;
                     }
                     100% {
-                        background-color: $b-Blue-700;
+                        background-color: $Blue-200;
                     }
                     }
                 }
                 &__btn {
                     position: relative;
                     display: block;
-                    background-color: $challengeBgColor;
                     margin: 48px auto 0 auto;
                     font-size: 36px;
                     font-weight: bold;
                     padding: 12px 40px;
                     border-radius: 36.5px;
-                    background-color: #ff0;
                     border: 0;
-                    box-shadow: 0 10px 0 0 #eac71b;
+                    background-color: $challengeBgColor;
+                    box-shadow: 0 10px 0 0 $Blue-700;
                     cursor: pointer;
                     transition: all .2s ease-out; 
                     top: 0;
-                    color: $b-DarkBlue-800;
+                    color: #fff;
                     @include nb-m {
                         font-size: 32px;
                         padding: 10px 36px;
@@ -425,10 +411,10 @@ $b-BlueGray-500: #E3E8F0;
                     @include ipad-s {
                         font-size: 24px;
                         padding: 10px 29px;
-                        box-shadow: 0 7px 0 0 #eac71b;
+                        box-shadow: 0 7px 0 0 $Blue-700
                     }
                     &:hover {
-                        box-shadow: 0 4px 0 0 #eac71b;
+                        box-shadow: 0 4px 0 0 $Blue-700;
                         top: 9px;
                         @include ipad-s {
                             top: 4px;
@@ -436,11 +422,12 @@ $b-BlueGray-500: #E3E8F0;
                     }
                     &--disabled {
                         pointer-events: none;
-                        background-color: #ffff80;
-                        color: #eac71b;
-                        box-shadow: 0 12px 0 0 #fced30;
+                        background-color: $Blue-500;
+                        color: #fff;
+                        top: 0;
+                        box-shadow: 0 12px 0 0 $Blue-400;
                         @include ipad-s {
-                            box-shadow: 0 3px 0 0 #eac71b;
+                            box-shadow: 0 3px 0 0 $Blue-400;
                         }
                     }
                 }
@@ -449,7 +436,7 @@ $b-BlueGray-500: #E3E8F0;
         &__table {
             position: relative;
             &__inner {
-                background-color: $b-Blue-300;
+                background-color: $Blue-300;
                 height: 104px;    
                 bottom: 0;
                 position: absolute;
