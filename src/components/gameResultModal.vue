@@ -46,7 +46,7 @@
 
 <script>
 import modal from "@easonlin0716/js-modal";
-const CFG_IMG_URL = ''
+const IMG_URL = ''
 export default {
     name: 'gameResultModal',
     filters: {
@@ -62,7 +62,7 @@ export default {
     },
     data() {
         return {
-            cardImgPath: `${CFG_IMG_URL}/active/2022_bestcandidate/`,
+            cardImgPath: `${IMG_URL}/path/to`,
             gameResult: null,
             nickName: '',
             isLoading: false,

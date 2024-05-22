@@ -24,7 +24,7 @@
 </template>
 
 <script>
-const CFG_IMG_URL = ''
+const IMG_URL = ''
 import gameResultModal from './gameResultModal.vue';
 import loseGameModal from './loseGameModal.vue';
 // List of font awesome codes used as illustrations, can be modified
@@ -70,9 +70,9 @@ export default {
             timeBegan: null,
             counter: '0:00.00',
             cards: [],
-            cardImgPath: `${CFG_IMG_URL}/active/2022_bestcandidate/`,
-            cardBackImgPath1: `${CFG_IMG_URL}/active/2022_bestcandidate/img_bg_front_inner.svg`,
-            cardBackImgPath2: `${CFG_IMG_URL}/active/2022_bestcandidate/img_human_flip.png`,
+            cardImgPath: `${IMG_URL}/path/to`,
+            cardBackImgPath1: `${IMG_URL}/path/toimg_bg_front_inner.svg`,
+            cardBackImgPath2: `${IMG_URL}/path/toimg_human_flip.png`,
             // 0: 待開始, 1: 遊戲中
             playState: 0,
             // 比較

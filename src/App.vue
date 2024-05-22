@@ -1,11 +1,9 @@
 <script setup lang="ts">
 import cardGame from './components/cardGame.vue'
-import HelloWorld from './components/HelloWorld.vue'
 </script>
 
 <template>
   <cardGame />
-  <HelloWorld msg="Vite + Vue" />
 </template>
 
 <style scoped>
