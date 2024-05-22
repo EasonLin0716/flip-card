@@ -1,43 +1,92 @@
-@mixin nb-m {
-    @media all and (max-width: 1536px) {
-        @content;
+@mixin phone-s {
+    @media all and (max-width: 320px) {
+      @content;
     }
 }
-@mixin pc-s {
-    @media all and (max-width: 1280px) {
-        @content;
-    }
-}
-@mixin ipad-m {
-    @media all and (max-width: 1024px) {
-        @content;
-    }
-}
-@mixin ipad-s {
-    @media all and (max-width: 768px) {
-        @content;
-    }
-}
-@mixin phone-l {
-    @media all and (max-width: 414px) {
-        @content;
-    }
+@mixin phone-sm {
+  @media all and (max-width: 360px) {
+    @content;
+  }
 }
 @mixin phone-m {
     @media all and (max-width: 375px) {
-        @content;
+      @content;
     }
 }
+@mixin phone-l{
+    @media all and (max-width: 414px) {
+      @content;
+    }
+}
+@mixin phone-xl{
+    @media all and (max-width: 430px) {
+      @content;
+    }
+}
+@mixin ipad-xs{
+    @media all and (max-width: 576px) {
+      @content;
+    }
+}
+@mixin ipad-s{
+    @media all and (max-width: 768px) {
+      @content;
+    }
+}
+@mixin ipad-sm{
+    @media all and (max-width: 820px) {
+      @content;
+    }
+}
+@mixin ipad-m{
+    @media all and (max-width: 1024px) {
+      @content;
+    }
+}
+
+@mixin pc-s{
+    @media all and (max-width: 1280px) {
+      @content;
+    }
+}
+@mixin pc-sm{
+    @media all and (max-width: 1440px) {
+      @content;
+    }
+}
+@mixin nb-m {
+  @media all and (max-width: 1536px) {
+    @content;
+  }
+}
+@mixin pc-m{
+    @media all and (max-width: 1680px) {
+      @content;
+    }
+}
+@mixin pc-l{
+    @media all and (max-width: 1920px) {
+      @content;
+    }
+}
+
 $gameBoardBgColor: #e7f3f7;
 $challengeBgColor: #ff0;
+$b-DarkBlue-20: #E9EAEB;
+$b-DarkBlue-300: #80858C;
+$b-DarkBlue-400: #6A7079;
+$b-DarkBlue-500: #555C66;
 $b-DarkBlue-700: #353d49;
 $b-DarkBlue-800: #2B3340;
 $b-DarkBlue-900:#232A35;
+$b-Blue-100: #D3E1FF;
 $b-Blue-300: #A7C3FF;
 $b-Blue-500: #6596FF;
 $b-Blue-600: #3978FF;
 $b-Blue-700: #2369FF;
 $b-PinkRed-700: #FA1E50;
+$b-BlueGray-300: #F2F5F9;
+$b-BlueGray-500: #E3E8F0;
 .content {
     &-memory {
         background-color: $gameBoardBgColor;
@@ -519,5 +568,479 @@ $b-PinkRed-700: #FA1E50;
             }
         }
 
+    }
+    &-modal {
+        position: relative;
+        $pcBackgroundWidth: 493px;
+        opacity: 0;
+        display: none;
+        top: 42%;
+        transform: translateY(-50%);
+        @include pc-sm {
+            top: 47%;
+        }
+        &__title {
+            text-align: center;
+            img {
+                height: 58px;
+                @include nb-m {
+                    height: 46px;
+                }
+            }
+        }
+        &__nav {
+            display: flex;
+            &__item {
+                flex-grow: 1;
+                color: $b-DarkBlue-700;
+                border: 1px solid $b-DarkBlue-700;
+                text-align: center;
+                padding: 10px 0;
+                margin-top: 33px;
+                font-weight: bold;
+                cursor: pointer;
+                @include nb-m {
+                    margin-top: 24px;
+                }
+                &:hover {
+                    background-color: $b-BlueGray-300;
+                }
+                &:first-child {
+                    border-top-left-radius: 8px;
+                    border-bottom-left-radius: 8px;
+                    border-right: none;
+                }
+                &:last-child {
+                    border-top-right-radius: 8px;
+                    border-bottom-right-radius: 8px;
+                }
+            }
+            &__item--selected {
+                background-color: $b-DarkBlue-700;
+                color: #fff;
+                &:hover {
+                    background-color: $b-DarkBlue-700;
+                }
+            }
+        }
+        .modal-common {
+            position: relative;
+            @include ipad-s {
+                width: 100%;
+            }
+            p {
+                color: $b-DarkBlue-900;
+            }
+            span {
+                color: $b-DarkBlue-300;
+                font-size: 20px;
+                text-align: center;
+                display: block;
+                @include phone-l {
+                    font-size: 16px;
+                }
+                &.btn-note {
+                    font-size: 13px;
+                    @include phone-l {
+                        font-size: 12px;
+                    }
+                }
+            }
+            button {
+                font-family: '微軟正黑體' !important;
+                position: relative;
+                display: block;
+                background-color: $challengeBgColor;
+                margin: 16px auto;
+                font-size: 24px;
+                font-weight: bold;
+                padding: 10px 29px;
+                border-radius: 26.4px;
+                background-color: #ff0;
+                border: 0;
+                box-shadow: 0 7px 0 0 #eac71b;
+                cursor: pointer;
+                transition: all .2s ease-out; 
+                top: 0;
+                color: $b-DarkBlue-800;
+                &:hover {
+                    box-shadow: 0 3px 0 0 #eac71b;
+                    top: 4px;
+                }
+            }
+            &__time {
+                display: inline-block !important;
+                @include ipad-s {
+                    display: none !important;
+                }
+            }
+            &__wrapper {
+                width: $pcBackgroundWidth;
+                height: 676px;
+                padding: 99px 80px 84px 80px;
+                background-image: url(/img/active/2022_bestcandidate/img_dialog_pop_l_PC.png);
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: 100%;
+                position: relative;
+                @include pc-m {
+                    width: 460px;
+                    height: 631px;
+                    padding: 80px 80px 84px 80px;
+                }
+                @include nb-m {
+                    width: 420px;
+                    height: 576px;
+                    padding: 64px 50px 68px 50px;
+                }
+                @include pc-sm {
+                    width: 400px;
+                    height: 549px;
+                    padding: 64px 50px;
+                }
+                @include ipad-s {
+                    background-image: url(/img/active/2022_bestcandidate/img_dialog_pop_l_M.png);
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: 100%;
+                    width: 331px;
+                    height: 552px;
+                    padding: 71px 26px 57px 27px;
+                }
+            }
+            &__bg-head {
+                position: absolute;
+                right: -128px;
+                bottom: -188px;
+                transform: scaleX(-1) rotate(-8deg);
+                width: 242px;
+                @include pc-m {
+                    right: -88px;
+                    bottom: -138px;
+                    width: 180px;
+                }
+                @include nb-m {
+                    right:-58px;
+                    bottom: -118px;
+                    width: 140px;
+                }
+                @include pc-sm {
+                    right: -48px;
+                    bottom: -38px;
+                    width: 96px;
+                }
+                @include ipad-s {
+                    width: 133px;
+                    right: -60px;
+                    bottom: -96px;
+                }
+                @include ipad-xs {
+                    right: -32px;
+                    bottom: -130px;
+                }
+            }
+            &__unknown {
+                background-color: $b-Blue-100;
+                text-align: center;
+                padding: 30px 0;
+                margin: 16px 0 8px 0;
+                border-radius: 8px;
+                @include ipad-s {
+                    padding: 24px;
+                }
+                @include phone-l {
+                    margin: 15px 0 16px 0;
+                }
+                img {
+                    width: 176px;
+                    @include ipad-s {
+                        width: 149px;
+                    }
+                }
+            }
+            &__blur {
+                height: 35px;
+                width: 100%;
+                background: linear-gradient(rgba(255,255,255, 0), rgba(255,255,255, 0.7), rgb(255, 255, 255) 100%);
+                position: absolute;
+                bottom: -1px;
+                margin-top: 0 !important;
+            }
+            &__items {
+                max-height: 220px;
+                min-height: 220px;
+                padding-bottom: 18px;
+                overflow-y: auto;
+                position: relative;
+                width: calc(100% + 52px);
+                @include nb-m {
+                    width: calc(100% + 32px);
+                }
+                @include pc-sm {
+                    max-height: 210px;
+                    min-height: 210px;
+                }
+                @include ipad-s {
+                    max-height: 190px;
+                    min-height: 190px;
+                    width: calc(100% + 30px);
+                }
+                li {
+                    display: flex;
+                    align-items: center;
+                    margin-top: 16px;
+                    @include ipad-s {
+                        margin-top: 12px;
+                    }
+                }
+                p {
+                    text-align: left;
+                    margin-bottom: 4px;
+                    font-weight: bold;
+                }
+                span {
+                    text-align: left;
+                    font-size: 13px;
+                    @include ipad-s {
+                        font-size: 12px;
+                    }
+                }
+                &::-webkit-scrollbar {
+                    width: 5px;
+                }
+                &::-webkit-scrollbar-thumb {
+                    background-color: $b-BlueGray-500;
+                    border-radius: 3.5px;
+                }
+                &__wrapper {
+                    position: relative;
+                    p {
+                        text-align: left;
+                        line-height: 1.5;
+                        font-size: 16px;
+                        @include ipad-s {
+                            font-size: 14px;
+                        }
+                    }
+                }
+                &__icon {
+                    margin-right: 12px;
+                    background-color: #fee8ed; 
+                    border-radius: 8px;
+                    @include ipad-s {
+                        margin-right: 8px;
+                    }
+                    img {
+                        width: 56px;
+                        @include phone-l {
+                            width: 48px;
+                        }
+                    }
+                }
+            }
+            &__gap {
+                margin-top: 24px;
+            }
+        }
+        .game-result {
+            &__info {
+                margin: 32px 0 40px 0;
+                @include ipad-s {
+                    margin: 24px 0 32px 0;
+                }
+                p {
+                    line-height: 1.5;
+                    text-align: center;
+                    color: $b-DarkBlue-700;
+                    font-size: 24px;
+                    font-weight: bold;
+                }
+                &.game-result__info--success p {
+                    @include ipad-s {
+                        font-size: 20px;
+                    }
+                }
+                &__boarding {
+                    margin-top: 16px;
+                }
+                &__invite {
+                    display: block;
+                    text-align: center;
+                    color: $b-DarkBlue-400;
+                    font-size: 18px;
+                    line-height: 1.5;
+                    @include ipad-s {
+                        font-size: 16px;
+                        margin-bottom: 0;
+                    }
+                }
+            }
+            &__form {
+                input {
+                    width: 100%;
+                    max-width: 312px;
+                    border: 2px solid $b-DarkBlue-20;
+                    border-radius: 8px;
+                    color: $b-DarkBlue-900;
+                    font-size: 18px;
+                    padding: 12px 0;
+                    text-align: center;
+                    margin-bottom: 72px;
+                    @include pc-sm {
+                        margin-bottom: 48px;
+                    }
+                    @include phone-l {
+                        margin-bottom: 56px;
+                    }
+                }
+                label {
+                    display: block;
+                    text-align: center;
+                    color: $b-DarkBlue-400;
+                    font-size: 18px;
+                    margin-bottom: 16px;
+                    @include ipad-s {
+                        font-size: 16px;
+                        margin-bottom: 12px;
+                    }
+                }
+            }
+            &__btn {
+                &:before {
+                    content: "";
+                    display: inline-block;
+                    width: 0;
+                    height: 0;
+                    border-radius: 50%;
+                    border: 0 none;
+                    margin-right: 0;
+                    transition: all .5s;
+                }
+                &--black {
+                    box-shadow: 0 7px 0 0 $b-DarkBlue-900 !important;
+                    background-color: $b-DarkBlue-500 !important;
+                    color: #fff !important;
+                    position: relative;
+                    &:hover {
+                        top: 4px;
+                        box-shadow: 0 3px 0 0 $b-DarkBlue-900 !important;
+                    }
+                }
+                &.game-result__btn--disabled, &.game-result__btn--loading {
+                    pointer-events: none;
+                    background-color: #ffff80;
+                    color: #eac71b;
+                    box-shadow: 0 7px 0 0 #fced30;
+                    @include ipad-s {
+                        box-shadow: 0 3px 0 0 #eac71b;
+                    }
+                }
+                &--loading:before { 
+                    width: 20px;
+                    height: 20px;
+                    border: 2px solid #99CCFF;
+                    border-top-color: white;
+                    margin-right: 10px;
+                    animation: rotating 1s infinite;
+                }
+            }
+            &__actions {
+                    margin-top: 100px;
+                button {
+                    margin-top: 27px;
+                }
+            }
+        }
+        .get-coupon {
+            position: relative;
+            @include ipad-s {
+                width: 100%;
+            }
+            p {
+                font-size: 32px;
+                color: $b-DarkBlue-700;
+                line-height: 1.5;
+                margin-bottom: 8px;
+                font-weight: bold;
+                @include phone-l {
+                    font-size: 24px;
+                }
+            }
+            span {
+                line-height: 1.5;
+                color: $b-DarkBlue-400;
+            }
+            button {
+                margin: 32px auto 0 auto;
+            }
+            &__wrapper {
+                padding: 159px 99px 163px 100px;
+                background-image: url(/img/active/2022_bestcandidate/img_pop_deco_left.svg), url(/img/active/2022_bestcandidate/img_pop_deco_right.svg), url(/img/active/2022_bestcandidate/img_dialog_pop_s_PC.png);
+                background-position: left 54px top 101px, right 54px bottom 106px, center;
+                background-repeat: no-repeat;
+                background-size: 31px 24px, 31px 25px, contain;
+                position: relative;
+                @include pc-sm {
+                    padding: 159px 80px 163px 80px;
+                    // width: 400px;
+                }
+                @include ipad-s {
+                    padding: 126px 79px 125px 73px;
+                    background-image: url(/img/active/2022_bestcandidate/img_pop_deco_left.svg), url(/img/active/2022_bestcandidate/img_pop_deco_right.svg), url(/img/active/2022_bestcandidate/img_dialog_pop_s_M.png);
+                    background-position: left 40px top 90px, right 40px bottom 94px, center;
+                    background-size: 28px 22px, 28px 23px, contain;
+                }
+                &.get-coupon__wrapper--tight {
+                    @include pc-sm {
+                        width: auto;
+                    }
+                }
+            }
+            &__bg-head {
+                position: absolute;
+                right: -136px;
+                bottom: -196px;
+                transform: scaleX(-1) rotate(-8deg);
+                width: 242px;
+                @include pc-m {
+                    right: -88px;
+                    bottom: -138px;
+                    width: 180px;
+                }
+                @include nb-m {
+                    right:-58px;
+                    bottom: -118px;
+                    width: 140px;
+                }
+                @include pc-sm {
+                    right: -38px;
+                    bottom: -52px;
+                    width: 96px;
+                }
+                @include ipad-s {
+                    width: 133px;
+                    right: -60px;
+                    bottom: -96px;
+                }
+                @include ipad-xs {
+                    right: -32px;
+                    bottom: -130px;
+                }
+                @include phone-l {
+                    right: 4px;
+                    bottom: -136px;
+                }
+            }
+            a.close-modal {
+                @include phone-l {
+                    right: 32px;
+                }
+                &.close-modal--tight {
+                    @include phone-l {
+                        right: 0;
+                    }
+                }
+            }
+        }
     }
 }

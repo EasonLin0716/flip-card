@@ -11,7 +11,7 @@
                 :class="[{ 'down': card.down && !card.matched, 'up': !card.down, 'matched': card.matched }, ' card']"
                 :style="card.down && !card.matched ? cardBackground : {}"
                 @click="handleClick(index)">
-                <img v-if="card.down" :src="cardImgPath + 'img_paperBag.svg'" alt="牌背">
+                <img v-if="card.down" :src="cardBackImgUrl" alt="牌背">
                 <img v-else :src="cardImgPath + card.icon" alt="牌背">
             </div>
         </div>
@@ -71,9 +71,10 @@ export default {
             timeBegan: null,
             counter: '0:00.00',
             cards: [],
+            cardBackImgUrl: 'https://fakeimg.pl/300x300',
             cardImgPath: `${IMG_URL}`,
-            cardBackImgPath1: `${IMG_URL}/path/to/img_bg_front_inner.svg`,
-            cardBackImgPath2: `${IMG_URL}/path/to/img_human_flip.png`,
+            cardBackImgPath1: `https://fakeimg.pl/300x300/ff0000/000`,
+            cardBackImgPath2: `https://fakeimg.pl/300x300/00ff00/fff`,
             // 0: 待開始, 1: 遊戲中
             playState: 0,
             // 比較
@@ -179,6 +180,9 @@ export default {
         handleWin() {
             this.playState = 0;
             this.stopCounter();
+            this.$refs.gameResultModal.openModal();
+            const customEvt = new CustomEvent('winCardGame', {});
+            document.dispatchEvent(customEvt);
         },
         handleLose() {
             this.playState = 0;
