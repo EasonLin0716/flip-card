@@ -9,7 +9,8 @@
         <div class="content-memory__play-game__section">
             <div v-for="(card, index) in cards" :key="index"
                 :class="[{ 'down': card.down && !card.matched, 'up': !card.down, 'matched': card.matched }, ' card']"
-                :style="card.down && !card.matched ? cardBackground : {}">
+                :style="card.down && !card.matched ? cardBackground : {}"
+                @click="handleClick(index)">
                 <img v-if="card.down" :src="cardImgPath + 'img_paperBag.svg'" alt="牌背">
                 <img v-else :src="cardImgPath + card.icon" alt="牌背">
             </div>
@@ -24,17 +25,17 @@
 </template>
 
 <script>
-const IMG_URL = ''
+const IMG_URL = '/'
 import gameResultModal from './gameResultModal.vue';
 import loseGameModal from './loseGameModal.vue';
 // List of font awesome codes used as illustrations, can be modified
 const icons = [
-    'img_paperBag.svg',
-    'img_invoice.svg',
-    'img_milk.svg',
-    'img_shakeCup.svg',
-    'img_drink.svg',
-    'img_iceSpoon.svg',
+    'chick.png',
+    'donut.png',
+    'heart.png',
+    'kitty.png',
+    'panda.png',
+    'stars.png',
 ];
 
 // Check if two cards are a match
@@ -70,9 +71,9 @@ export default {
             timeBegan: null,
             counter: '0:00.00',
             cards: [],
-            cardImgPath: `${IMG_URL}/path/to`,
-            cardBackImgPath1: `${IMG_URL}/path/toimg_bg_front_inner.svg`,
-            cardBackImgPath2: `${IMG_URL}/path/toimg_human_flip.png`,
+            cardImgPath: `${IMG_URL}`,
+            cardBackImgPath1: `${IMG_URL}/path/to/img_bg_front_inner.svg`,
+            cardBackImgPath2: `${IMG_URL}/path/to/img_human_flip.png`,
             // 0: 待開始, 1: 遊戲中
             playState: 0,
             // 比較
