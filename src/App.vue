@@ -7,12 +7,7 @@
         </div>
         <!-- 遊戲 -->
         <div class="content-memory__play-game__section">
-            <div v-for="(card, index) in cards" :key="index"
-                :class="[{ 'down': card.down && !card.matched, 'up': !card.down, 'matched': card.matched }, ' card']"
-                :style="card.down && !card.matched ? cardBackground : {}" @click="handleClick(index)">
-                <img v-if="card.down" :src="cardBackImgUrl" alt="牌背" width="104" height="104">
-                <img v-else :src="cardImgPath + card.icon" alt="牌背">
-            </div>
+            <GameCard v-for="(card, index) in cards" :key="index" :card="card" @cardClick="handleClick(index)" />
         </div>
         <!-- 按鈕 -->
         <button v-if="playState === 1" class="content-memory__play-game__btn content-memory__play-game__btn--disabled"
@@ -24,6 +19,7 @@
 </template>
 <script>
 const IMG_URL = '/'
+import GameCard from './components/GameCard.vue';
 import GameResultModal from './components/GameResultModal.vue';
 import LoseGameModal from './components/LoseGameModal.vue';
 // 時間限制(分鐘)
@@ -62,7 +58,7 @@ const shuffle = array => {
 
 export default {
     name: 'cardGame',
-    components: { GameResultModal, LoseGameModal },
+    components: { GameCard, GameResultModal, LoseGameModal },
     data() {
         return {
             timer: null,
