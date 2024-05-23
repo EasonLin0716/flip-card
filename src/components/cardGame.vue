@@ -22,7 +22,6 @@
         <LoseGameModal ref="LoseGameModal" @replay="startGame" />
     </div>
 </template>
-
 <script>
 const IMG_URL = '/'
 import GameResultModal from './GameResultModal.vue';

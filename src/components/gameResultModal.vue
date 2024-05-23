@@ -43,7 +43,6 @@
         </div>
     </section>
 </template>
-
 <script>
 import modal from "@easonlin0716/js-modal";
 const IMG_URL = ''

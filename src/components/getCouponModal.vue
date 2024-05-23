@@ -16,14 +16,12 @@
                     <button v-if="isGotAllCoupons" @click="openPrizeRecordModal($event)">看抽獎紀錄</button>
                     <button v-else @click="continueChallenge">繼續挑戰</button>
                 </div>
-
                 <img class="get-coupon__bg-head" :src="cardImgPath + '/img_head.png'" alt="背景圖">
                 <a href="javascript:;" class="close-modal close-modal--tight" @click="closeModal"></a>
             </div>
         </div>
     </section>
 </template>
-
 <script>
 import modal from "@easonlin0716/js-modal";
 const IMG_URL = ''
