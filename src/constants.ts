@@ -17,6 +17,10 @@ export type PlayStateText =
   | PLAY_STATE_TEXT.PLAYING;
 export type CounterType = `${string}:${string}${string}.${string}${string}`;
 export type CardIcon = string[];
+export type GetRecordLevelRequestPayloadType = {
+  nickName: string;
+  counter: CounterType;
+};
 
 export const cardBackImgPath: string = "https://fakeimg.pl/300x300/1F3A52/fff";
 export const icons: CardIcon = [

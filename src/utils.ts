@@ -20,3 +20,7 @@ export const shuffleCards = (array: Card[]) => {
 export const checkMatch = (comparing: Card, compared: Card) => {
   return comparing.icon === compared.icon;
 };
+
+export const sleep = (ms: number = 2000) => {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+};

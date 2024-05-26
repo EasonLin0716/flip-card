@@ -43,6 +43,7 @@ watch(victory, (val: boolean) => {
 onMounted(() => {
     cards.value = initCards(icons.length * 2);
     cardsShuffle();
+    // GameResultModalRef.value.openModal();
 });
 const handleGetCoupon = () => {
     // nothing

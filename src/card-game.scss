@@ -1,7 +1,7 @@
 @mixin phone-s {
-    @media all and (max-width: 320px) {
-      @content;
-    }
+  @media all and (max-width: 320px) {
+    @content;
+  }
 }
 @mixin phone-sm {
   @media all and (max-width: 360px) {
@@ -9,1025 +9,1026 @@
   }
 }
 @mixin phone-m {
-    @media all and (max-width: 375px) {
-      @content;
-    }
+  @media all and (max-width: 375px) {
+    @content;
+  }
 }
-@mixin phone-l{
-    @media all and (max-width: 414px) {
-      @content;
-    }
+@mixin phone-l {
+  @media all and (max-width: 414px) {
+    @content;
+  }
 }
-@mixin phone-xl{
-    @media all and (max-width: 430px) {
-      @content;
-    }
+@mixin phone-xl {
+  @media all and (max-width: 430px) {
+    @content;
+  }
 }
-@mixin ipad-xs{
-    @media all and (max-width: 576px) {
-      @content;
-    }
+@mixin ipad-xs {
+  @media all and (max-width: 576px) {
+    @content;
+  }
 }
-@mixin ipad-s{
-    @media all and (max-width: 768px) {
-      @content;
-    }
+@mixin ipad-s {
+  @media all and (max-width: 768px) {
+    @content;
+  }
 }
-@mixin ipad-sm{
-    @media all and (max-width: 820px) {
-      @content;
-    }
+@mixin ipad-sm {
+  @media all and (max-width: 820px) {
+    @content;
+  }
 }
-@mixin ipad-m{
-    @media all and (max-width: 1024px) {
-      @content;
-    }
+@mixin ipad-m {
+  @media all and (max-width: 1024px) {
+    @content;
+  }
 }
 
-@mixin pc-s{
-    @media all and (max-width: 1280px) {
-      @content;
-    }
+@mixin pc-s {
+  @media all and (max-width: 1280px) {
+    @content;
+  }
 }
-@mixin pc-sm{
-    @media all and (max-width: 1440px) {
-      @content;
-    }
+@mixin pc-sm {
+  @media all and (max-width: 1440px) {
+    @content;
+  }
 }
 @mixin nb-m {
   @media all and (max-width: 1536px) {
     @content;
   }
 }
-@mixin pc-m{
-    @media all and (max-width: 1680px) {
-      @content;
-    }
+@mixin pc-m {
+  @media all and (max-width: 1680px) {
+    @content;
+  }
 }
-@mixin pc-l{
-    @media all and (max-width: 1920px) {
-      @content;
-    }
+@mixin pc-l {
+  @media all and (max-width: 1920px) {
+    @content;
+  }
 }
 
 $gameBoardBgColor: #e7f3f7;
-$challengeBgColor: #2C5364;
-$b-DarkBlue-20: #E9EAEB;
-$b-DarkBlue-300: #80858C;
-$b-DarkBlue-400: #6A7079;
-$b-DarkBlue-500: #555C66;
+$challengeBgColor: #2c5364;
+$b-DarkBlue-20: #e9eaeb;
+$b-DarkBlue-300: #80858c;
+$b-DarkBlue-400: #6a7079;
+$b-DarkBlue-500: #555c66;
 $b-DarkBlue-700: #353d49;
-$b-DarkBlue-800: #2B3340;
-$b-DarkBlue-900:#232A35;
-$b-Blue-100: #D3E1FF;
-$b-Blue-500: #6596FF;
-$b-Blue-600: #3978FF;
-$Blue-200: #1A2980;
-$Blue-300: #0F2027;
+$b-DarkBlue-800: #2b3340;
+$b-DarkBlue-900: #232a35;
+$b-Blue-100: #d3e1ff;
+$b-Blue-500: #6596ff;
+$b-Blue-600: #3978ff;
+$Blue-200: #1a2980;
+$Blue-300: #0f2027;
 $Blue-400: #3c5969;
 $Blue-500: #4a6b7c;
-$Blue-800: #2C5364;
-$Blue-700: #1F3A52;
-$b-BlueGray-300: #F2F5F9;
-$b-BlueGray-500: #E3E8F0;
+$Blue-800: #2c5364;
+$Blue-700: #1f3a52;
+$b-BlueGray-300: #f2f5f9;
+$b-BlueGray-500: #e3e8f0;
 
-*, *::before, *::after {
-    box-sizing: border-box;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 .content {
-    &-memory {
-        background-color: $gameBoardBgColor;
-        &__bg {
-            position: absolute;
-            &-human-drink-1, &-human-drink-2 {
-                max-width: 280px;
-                bottom: 120px;
-                @include ipad-s {
-                    max-width: 180px;
-                    bottom: 168px;
-                }
-                @include ipad-s {
-                    max-width: 144px;
-                }
-                @include phone-l {
-                    bottom: 140px;
-                }
-            }
-            &-human-drink-1 {
-                transform: scaleX(-1) rotate(15deg);
-                left: -72px;
-                @include ipad-s {
-                    left: 0;
-                }
-                @include phone-l {
-                    left: -16px;
-                }
-            }
-            &-human-drink-2 {
-                transform: rotate(15deg);
-                right: -72px;
-                @include ipad-s {
-                    right: 0;
-                }
-            }
-            &-text-list {
-                max-width: 33px;
-            }
-            &-sticker-right {
-                position: relative;
-                top: 6px;
-                left: -1px;
-                z-index: 20;
-            }
-            &-sticker-left {
-                position: relative;
-                z-index: 20;
-                right: -2px;
-                @include phone-l {
-                    height: 160px;
-                }
-            }
-            &-plastic-can-1, &-plastic-can-2 {
-                bottom: -12px;
-                width: 261px;
-                @include pc-s {
-                    width: 230px;
-                }
-            }
-            &-cups-2, &-cups-3 {
-                bottom: 58px;
-            }
-            &-plastic-can-1 {
-                left: -594px;
-                opacity: 0;
-                @include pc-s {
-                    left: -510px;
-                }
-                @include ipad-m {
-                    display: none;
-                }
-            }
-            &-plastic-can-2 {
-                left: -307px;
-                opacity: 0;
-                @include pc-s {
-                    left: -260px;
-                }
-                @include ipad-s {
-                    display: none;
-                }
-            }
-            &-machine {
-                right: -363px;
-                bottom: 41px;
-                opacity: 0;
-                @include ipad-s {
-                    display: none;
-                }
-            }
-            &-cups-1 {
-                right: -450px;
-                bottom: 39px;
-                opacity: 0;
-                @include pc-s {
-                    display: none;
-                }
-            }
-            &-cups-2 {
-                right: -523px;
-                opacity: 0;
-                @media all and (max-width: 1688px) {
-                    display: none;
-                }
-            }
-            &-cups-3 {
-                max-width: 62px;
-                right: -592px;
-                opacity: 0;
-                @media all and (max-width: 1832px) {
-                    display: none;
-                }
-            }
-            &-cloud-drinkShop {
-                width: 100%;
-                position: absolute;
-                bottom: -1px;
-                z-index: 20;
-                pointer-events: none;
-            }
+  &-memory {
+    background-color: $gameBoardBgColor;
+    &__bg {
+      position: absolute;
+      &-human-drink-1,
+      &-human-drink-2 {
+        max-width: 280px;
+        bottom: 120px;
+        @include ipad-s {
+          max-width: 180px;
+          bottom: 168px;
         }
-        &__text-list {
-            background-color: $gameBoardBgColor;
-            text-align: center;
-            z-index: 20;
-            vertical-align: middle;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            top: 0px;
-            min-width: 68px;
-            // 修正獎牌overflow問題
-            height: 131px;
-            position: relative;
-            top: -6px;
-            img {
-                width: 36px;
-            }
+        @include ipad-s {
+          max-width: 144px;
         }
-        &__intro {
-            color: $b-DarkBlue-700;
-            margin-bottom: 40px;
-            @include nb-m {
-                margin-bottom: 32px;
-            }
+        @include phone-l {
+          bottom: 140px;
         }
-        &__play {
-            max-width: 768px;
-            max-height: 703px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
-            @include nb-m {
-                max-width: 640px;
-                max-height: 640px;
-            }
-            @include pc-s {
-                max-width: 540px;
-                max-height: 580px;
-            }
-            @include ipad-s {
-                max-width: 440px;
-            }
-            @include phone-l {
-                max-width: 343px;
-            }
-            &-game {
-                background: linear-gradient(to bottom, #00416a, #2c5364, #3a6073, #667db6);
-                margin: 0 auto;
-                padding-top: 24px;
-                min-height: 100vh;
-                @include ipad-s {
-                    padding: 12px 16px 0 16px;
-                }
-                &__timer {
-                    display: flex;
-                    max-width: 246px;
-                    justify-content: space-between;
-                    font-size: 18px;
-                    padding: 10px 47px;
-                    color: #fff;
-                    background-color: $b-DarkBlue-900;
-                    border-radius: 9.4px;
-                    margin: 0 auto 21px auto;
-                    @include pc-s {
-                        margin-bottom: 16px;
-                    }
-                    @include ipad-s {
-                        max-width: 137px;
-                        font-size: 13px;
-                        padding: 8px 16px;
-                        margin-bottom: 12px;
-                    }
-                }
-                &__section {
-                    display: grid;
-                    grid-template-columns: repeat(4, 1fr);
-                    gap: 24px;
-                    justify-content: center;
-                    max-width: 640px;
-                    margin: 0 auto;
-                    width: 100%;
-                    background-color: $gameBoardBgColor;
-                    padding: 24px;
-                    border-radius: 8px;
-                    @include ipad-s {
-                        max-width: 520px;
-                        grid-template-columns: repeat(3, 1fr);
-                    }
-                    @include ipad-xs {
-                        padding: 12px;
-                        gap: 12px;
-                    }
-                    img {
-                        width: 100%;
-                    }
-                    .victory-state {
-                        grid-column-start: 1;
-                        grid-column-end: -1;
-                        text-align: center;
-                        display: flex;
-                        justify-content: space-between;
-                        align-items: center;
-                    }
-                    .card {
-                        aspect-ratio: 1 / 1;
-                        background-color: $Blue-700;    
-                        background-size: 100% 100%;
-                        background-position: center;
-                        background-repeat: no-repeat, no-repeat;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        border-radius: 8px;
-                        padding: 6px;
-                        cursor: pointer;
-                        border: 6px solid transparent;
-                        animation: flipUp .5s forwards;
-                        img {
-                            opacity: 1;
-                            transition: opacity .5s;
-                            max-width: 100%;
-                            height: auto;
-                        }
-                        &.down {
-                            animation: flipDown .5s forwards;
-                            img {
-                            opacity: 0;
-                            }
-                        }
-                        &.matched {
-                            animation: matching 1s forwards;
-                        }
-                    }
-                    
-                    @keyframes flipDown {
-                    0% {
-                        background-color: $Blue-800;
-                        transform: rotateY(0deg);
-                    }
-                    100% {
-                        background-color: $Blue-700;
-                        transform: rotateY(180deg);
-                    }
-                    }
-                    
-                    @keyframes flipUp {
-                    0% {
-                        background-color: $Blue-700;
-                        transform: rotateY(180deg);
-                    }
-                    100% {
-                        background-color: $Blue-800;
-                        transform: rotateY(0deg);
-                    }
-                    }
-                    
-                    @keyframes matching {
-                    0% {
-                        background-color: $Blue-300;
-                    }
-                    50% {
-                        background-color: $Blue-300;
-                    }
-                    100% {
-                        background-color: $Blue-200;
-                    }
-                    }
-                }
-                &__btn {
-                    position: relative;
-                    display: block;
-                    margin: 48px auto 0 auto;
-                    font-size: 36px;
-                    font-weight: bold;
-                    padding: 12px 40px;
-                    border-radius: 36.5px;
-                    border: 0;
-                    background-color: $challengeBgColor;
-                    box-shadow: 0 10px 0 0 $Blue-700;
-                    cursor: pointer;
-                    transition: all .2s ease-out; 
-                    top: 0;
-                    color: #fff;
-                    @include nb-m {
-                        font-size: 32px;
-                        padding: 10px 36px;
-                        margin-top: 32px;
-                    }
-                    @include pc-s {
-                        margin-top: 24px;
-                    }
-                    @include ipad-s {
-                        font-size: 24px;
-                        padding: 10px 29px;
-                        box-shadow: 0 7px 0 0 $Blue-700
-                    }
-                    &:hover {
-                        box-shadow: 0 4px 0 0 $Blue-700;
-                        top: 9px;
-                        @include ipad-s {
-                            top: 4px;
-                        }
-                    }
-                    &--disabled {
-                        pointer-events: none;
-                        background-color: $Blue-500;
-                        color: #fff;
-                        top: 0;
-                        box-shadow: 0 12px 0 0 $Blue-400;
-                        @include ipad-s {
-                            box-shadow: 0 3px 0 0 $Blue-400;
-                        }
-                    }
-                }
-            }
+      }
+      &-human-drink-1 {
+        transform: scaleX(-1) rotate(15deg);
+        left: -72px;
+        @include ipad-s {
+          left: 0;
         }
-        &__table {
-            position: relative;
-            &__inner {
-                background-color: $Blue-300;
-                height: 104px;    
-                bottom: 0;
-                position: absolute;
-                width: 100%;
-                
-            }
+        @include phone-l {
+          left: -16px;
         }
-        &__board {
-            background-color: $b-Blue-500;
-            height: 740px;
-            position: relative;
-            transition: all .2s ease-out;
-            @include ipad-s {
-                height: 640px;
-            }
-            @include phone-l {
-                height: 540px;
-            }
-            &-scroll {
-                max-width: 950px;
-                margin: 0 auto;
-                display: flex;
-                align-items: center;
-                position: relative;
-                top: 100px;
-                z-index: 20;
-                @include ipad-m {
-                    max-width: 840px;
-                }
-                @include ipad-s {
-                    top: 110px;
-                    padding-left: 16px;
-                }
-                @include phone-l {
-                    top: 80px;
-                    margin-left: 16px;
-                }
-                @include phone-m {
-                    margin-left: 0;
-                }
-                &__cards {
-                    flex-grow: 1;
-                    display: flex;
-                    height: 180px;
-                    background-color: $gameBoardBgColor;
-                    position: relative;
-                    padding: 27px 0 34px 0;    
-                    overflow: hidden;
-                    max-width: 950px - 145px - 16px;
-                    @include phone-l {
-                        height: 160px;
-                        padding: 18px 0 22px 0;
-                    }
-                    .swiper{
-                        width: 90%;
-                    }
-                    .swiper-pagination {
-                        bottom: 10px;
-                        left: 50%;
-                        transition: all .2s ease-out;
-                        @include phone-l {
-                            bottom: 8px;
-                        }
-                        .swiper-pagination-bullet {
-                            opacity: 1;
-                            width: 10px;
-                            height: 10px;
-                            margin: 0 4px;
-                            background-color: #f3f9fb;
-                            @include phone-l {
-                                width: 5px;
-                                height: 5px;
-                            }
-                        }
-                        .swiper-pagination-bullet-active {
-                            width: 38px;
-                            border-radius: 5.8px;
-                            background-color: #fff;
-                            @include phone-l {
-                                width: 16px;
-                                height: 5px;
-                            }
-                        }
-                    }
-                    &__item {
-                        background-color: #fff;
-                        padding: 12px 16px;
-                        border-radius: 10px;
-                        position: relative;
-                        div {
-                            display: flex;
-                            justify-content: space-between;
-                        }
-                        img {
-                            position: absolute;
-                            right: 16px;
-                            top: -6px;
-                            max-width: 27px;
-                        }
-                        p {
-                            font-weight: bold;
-                            color: $b-DarkBlue-800;
-                        }
-                        hr {
-                            border-top: 1px solid $b-DarkBlue-800;
-                            margin: 8px 0 7px 0;
-                        }
-                        span {
-                            display: block;
-                            font-size: 14px;
-                            color: $b-DarkBlue-800;
-                            margin-top: 28px;
-                        }
-                    }
-                }
-            }
+      }
+      &-human-drink-2 {
+        transform: rotate(15deg);
+        right: -72px;
+        @include ipad-s {
+          right: 0;
         }
-
-    }
-    &-modal {
+      }
+      &-text-list {
+        max-width: 33px;
+      }
+      &-sticker-right {
         position: relative;
-        $pcBackgroundWidth: 493px;
+        top: 6px;
+        left: -1px;
+        z-index: 20;
+      }
+      &-sticker-left {
+        position: relative;
+        z-index: 20;
+        right: -2px;
+        @include phone-l {
+          height: 160px;
+        }
+      }
+      &-plastic-can-1,
+      &-plastic-can-2 {
+        bottom: -12px;
+        width: 261px;
+        @include pc-s {
+          width: 230px;
+        }
+      }
+      &-cups-2,
+      &-cups-3 {
+        bottom: 58px;
+      }
+      &-plastic-can-1 {
+        left: -594px;
         opacity: 0;
-        display: none;
-        top: 42%;
-        transform: translateY(-50%);
-        @include pc-sm {
-            top: 47%;
+        @include pc-s {
+          left: -510px;
         }
-        &__title {
-            text-align: center;
-            img {
-                height: 58px;
-                @include nb-m {
-                    height: 46px;
-                }
-            }
+        @include ipad-m {
+          display: none;
         }
-        &__nav {
-            display: flex;
-            &__item {
-                flex-grow: 1;
-                color: $b-DarkBlue-700;
-                border: 1px solid $b-DarkBlue-700;
-                text-align: center;
-                padding: 10px 0;
-                margin-top: 33px;
-                font-weight: bold;
-                cursor: pointer;
-                @include nb-m {
-                    margin-top: 24px;
-                }
-                &:hover {
-                    background-color: $b-BlueGray-300;
-                }
-                &:first-child {
-                    border-top-left-radius: 8px;
-                    border-bottom-left-radius: 8px;
-                    border-right: none;
-                }
-                &:last-child {
-                    border-top-right-radius: 8px;
-                    border-bottom-right-radius: 8px;
-                }
-            }
-            &__item--selected {
-                background-color: $b-DarkBlue-700;
-                color: #fff;
-                &:hover {
-                    background-color: $b-DarkBlue-700;
-                }
-            }
+      }
+      &-plastic-can-2 {
+        left: -307px;
+        opacity: 0;
+        @include pc-s {
+          left: -260px;
         }
-        .modal-common {
-            position: relative;
-            @include ipad-s {
-                width: 100%;
-            }
-            p {
-                color: $b-DarkBlue-900;
-            }
-            span {
-                color: $b-DarkBlue-300;
-                font-size: 20px;
-                text-align: center;
-                display: block;
-                @include phone-l {
-                    font-size: 16px;
-                }
-                &.btn-note {
-                    font-size: 13px;
-                    @include phone-l {
-                        font-size: 12px;
-                    }
-                }
-            }
-            button {
-                font-family: '微軟正黑體' !important;
-                position: relative;
-                display: block;
-                background-color: $challengeBgColor;
-                margin: 16px auto;
-                font-size: 24px;
-                font-weight: bold;
-                padding: 10px 29px;
-                border-radius: 26.4px;
-                background-color: #ff0;
-                border: 0;
-                box-shadow: 0 7px 0 0 #eac71b;
-                cursor: pointer;
-                transition: all .2s ease-out; 
-                top: 0;
-                color: $b-DarkBlue-800;
-                &:hover {
-                    box-shadow: 0 3px 0 0 #eac71b;
-                    top: 4px;
-                }
-            }
-            &__time {
-                display: inline-block !important;
-                @include ipad-s {
-                    display: none !important;
-                }
-            }
-            &__wrapper {
-                width: $pcBackgroundWidth;
-                height: 676px;
-                padding: 99px 80px 84px 80px;
-                background-image: url(/img/active/2022_bestcandidate/img_dialog_pop_l_PC.png);
-                background-position: center;
-                background-repeat: no-repeat;
-                background-size: 100%;
-                position: relative;
-                @include pc-m {
-                    width: 460px;
-                    height: 631px;
-                    padding: 80px 80px 84px 80px;
-                }
-                @include nb-m {
-                    width: 420px;
-                    height: 576px;
-                    padding: 64px 50px 68px 50px;
-                }
-                @include pc-sm {
-                    width: 400px;
-                    height: 549px;
-                    padding: 64px 50px;
-                }
-                @include ipad-s {
-                    background-image: url(/img/active/2022_bestcandidate/img_dialog_pop_l_M.png);
-                    background-position: center;
-                    background-repeat: no-repeat;
-                    background-size: 100%;
-                    width: 331px;
-                    height: 552px;
-                    padding: 71px 26px 57px 27px;
-                }
-            }
-            &__bg-head {
-                position: absolute;
-                right: -128px;
-                bottom: -188px;
-                transform: scaleX(-1) rotate(-8deg);
-                width: 242px;
-                @include pc-m {
-                    right: -88px;
-                    bottom: -138px;
-                    width: 180px;
-                }
-                @include nb-m {
-                    right:-58px;
-                    bottom: -118px;
-                    width: 140px;
-                }
-                @include pc-sm {
-                    right: -48px;
-                    bottom: -38px;
-                    width: 96px;
-                }
-                @include ipad-s {
-                    width: 133px;
-                    right: -60px;
-                    bottom: -96px;
-                }
-                @include ipad-xs {
-                    right: -32px;
-                    bottom: -130px;
-                }
-            }
-            &__unknown {
-                background-color: $b-Blue-100;
-                text-align: center;
-                padding: 30px 0;
-                margin: 16px 0 8px 0;
-                border-radius: 8px;
-                @include ipad-s {
-                    padding: 24px;
-                }
-                @include phone-l {
-                    margin: 15px 0 16px 0;
-                }
-                img {
-                    width: 176px;
-                    @include ipad-s {
-                        width: 149px;
-                    }
-                }
-            }
-            &__blur {
-                height: 35px;
-                width: 100%;
-                background: linear-gradient(rgba(255,255,255, 0), rgba(255,255,255, 0.7), rgb(255, 255, 255) 100%);
-                position: absolute;
-                bottom: -1px;
-                margin-top: 0 !important;
-            }
-            &__items {
-                max-height: 220px;
-                min-height: 220px;
-                padding-bottom: 18px;
-                overflow-y: auto;
-                position: relative;
-                width: calc(100% + 52px);
-                @include nb-m {
-                    width: calc(100% + 32px);
-                }
-                @include pc-sm {
-                    max-height: 210px;
-                    min-height: 210px;
-                }
-                @include ipad-s {
-                    max-height: 190px;
-                    min-height: 190px;
-                    width: calc(100% + 30px);
-                }
-                li {
-                    display: flex;
-                    align-items: center;
-                    margin-top: 16px;
-                    @include ipad-s {
-                        margin-top: 12px;
-                    }
-                }
-                p {
-                    text-align: left;
-                    margin-bottom: 4px;
-                    font-weight: bold;
-                }
-                span {
-                    text-align: left;
-                    font-size: 13px;
-                    @include ipad-s {
-                        font-size: 12px;
-                    }
-                }
-                &::-webkit-scrollbar {
-                    width: 5px;
-                }
-                &::-webkit-scrollbar-thumb {
-                    background-color: $b-BlueGray-500;
-                    border-radius: 3.5px;
-                }
-                &__wrapper {
-                    position: relative;
-                    p {
-                        text-align: left;
-                        line-height: 1.5;
-                        font-size: 16px;
-                        @include ipad-s {
-                            font-size: 14px;
-                        }
-                    }
-                }
-                &__icon {
-                    margin-right: 12px;
-                    background-color: #fee8ed; 
-                    border-radius: 8px;
-                    @include ipad-s {
-                        margin-right: 8px;
-                    }
-                    img {
-                        width: 56px;
-                        @include phone-l {
-                            width: 48px;
-                        }
-                    }
-                }
-            }
-            &__gap {
-                margin-top: 24px;
-            }
+        @include ipad-s {
+          display: none;
         }
-        .game-result {
-            &__info {
-                margin: 32px 0 40px 0;
-                @include ipad-s {
-                    margin: 24px 0 32px 0;
-                }
-                p {
-                    line-height: 1.5;
-                    text-align: center;
-                    color: $b-DarkBlue-700;
-                    font-size: 24px;
-                    font-weight: bold;
-                }
-                &.game-result__info--success p {
-                    @include ipad-s {
-                        font-size: 20px;
-                    }
-                }
-                &__boarding {
-                    margin-top: 16px;
-                }
-                &__invite {
-                    display: block;
-                    text-align: center;
-                    color: $b-DarkBlue-400;
-                    font-size: 18px;
-                    line-height: 1.5;
-                    @include ipad-s {
-                        font-size: 16px;
-                        margin-bottom: 0;
-                    }
-                }
-            }
-            &__form {
-                input {
-                    width: 100%;
-                    max-width: 312px;
-                    border: 2px solid $b-DarkBlue-20;
-                    border-radius: 8px;
-                    color: $b-DarkBlue-900;
-                    font-size: 18px;
-                    padding: 12px 0;
-                    text-align: center;
-                    margin-bottom: 72px;
-                    @include pc-sm {
-                        margin-bottom: 48px;
-                    }
-                    @include phone-l {
-                        margin-bottom: 56px;
-                    }
-                }
-                label {
-                    display: block;
-                    text-align: center;
-                    color: $b-DarkBlue-400;
-                    font-size: 18px;
-                    margin-bottom: 16px;
-                    @include ipad-s {
-                        font-size: 16px;
-                        margin-bottom: 12px;
-                    }
-                }
-            }
-            &__btn {
-                &:before {
-                    content: "";
-                    display: inline-block;
-                    width: 0;
-                    height: 0;
-                    border-radius: 50%;
-                    border: 0 none;
-                    margin-right: 0;
-                    transition: all .5s;
-                }
-                &--black {
-                    box-shadow: 0 7px 0 0 $b-DarkBlue-900 !important;
-                    background-color: $b-DarkBlue-500 !important;
-                    color: #fff !important;
-                    position: relative;
-                    &:hover {
-                        top: 4px;
-                        box-shadow: 0 3px 0 0 $b-DarkBlue-900 !important;
-                    }
-                }
-                &.game-result__btn--disabled, &.game-result__btn--loading {
-                    pointer-events: none;
-                    background-color: #ffff80;
-                    color: #eac71b;
-                    box-shadow: 0 7px 0 0 #fced30;
-                    @include ipad-s {
-                        box-shadow: 0 3px 0 0 #eac71b;
-                    }
-                }
-                &--loading:before { 
-                    width: 20px;
-                    height: 20px;
-                    border: 2px solid #99CCFF;
-                    border-top-color: white;
-                    margin-right: 10px;
-                    animation: rotating 1s infinite;
-                }
-            }
-            &__actions {
-                    margin-top: 100px;
-                button {
-                    margin-top: 27px;
-                }
-            }
+      }
+      &-machine {
+        right: -363px;
+        bottom: 41px;
+        opacity: 0;
+        @include ipad-s {
+          display: none;
         }
-        .get-coupon {
-            position: relative;
-            @include ipad-s {
-                width: 100%;
-            }
-            p {
-                font-size: 32px;
-                color: $b-DarkBlue-700;
-                line-height: 1.5;
-                margin-bottom: 8px;
-                font-weight: bold;
-                @include phone-l {
-                    font-size: 24px;
-                }
-            }
-            span {
-                line-height: 1.5;
-                color: $b-DarkBlue-400;
-            }
-            button {
-                margin: 32px auto 0 auto;
-            }
-            &__wrapper {
-                padding: 159px 99px 163px 100px;
-                background-image: url(/img/active/2022_bestcandidate/img_pop_deco_left.svg), url(/img/active/2022_bestcandidate/img_pop_deco_right.svg), url(/img/active/2022_bestcandidate/img_dialog_pop_s_PC.png);
-                background-position: left 54px top 101px, right 54px bottom 106px, center;
-                background-repeat: no-repeat;
-                background-size: 31px 24px, 31px 25px, contain;
-                position: relative;
-                @include pc-sm {
-                    padding: 159px 80px 163px 80px;
-                    // width: 400px;
-                }
-                @include ipad-s {
-                    padding: 126px 79px 125px 73px;
-                    background-image: url(/img/active/2022_bestcandidate/img_pop_deco_left.svg), url(/img/active/2022_bestcandidate/img_pop_deco_right.svg), url(/img/active/2022_bestcandidate/img_dialog_pop_s_M.png);
-                    background-position: left 40px top 90px, right 40px bottom 94px, center;
-                    background-size: 28px 22px, 28px 23px, contain;
-                }
-                &.get-coupon__wrapper--tight {
-                    @include pc-sm {
-                        width: auto;
-                    }
-                }
-            }
-            &__bg-head {
-                position: absolute;
-                right: -136px;
-                bottom: -196px;
-                transform: scaleX(-1) rotate(-8deg);
-                width: 242px;
-                @include pc-m {
-                    right: -88px;
-                    bottom: -138px;
-                    width: 180px;
-                }
-                @include nb-m {
-                    right:-58px;
-                    bottom: -118px;
-                    width: 140px;
-                }
-                @include pc-sm {
-                    right: -38px;
-                    bottom: -52px;
-                    width: 96px;
-                }
-                @include ipad-s {
-                    width: 133px;
-                    right: -60px;
-                    bottom: -96px;
-                }
-                @include ipad-xs {
-                    right: -32px;
-                    bottom: -130px;
-                }
-                @include phone-l {
-                    right: 4px;
-                    bottom: -136px;
-                }
-            }
-            a.close-modal {
-                @include phone-l {
-                    right: 32px;
-                }
-                &.close-modal--tight {
-                    @include phone-l {
-                        right: 0;
-                    }
-                }
-            }
+      }
+      &-cups-1 {
+        right: -450px;
+        bottom: 39px;
+        opacity: 0;
+        @include pc-s {
+          display: none;
         }
+      }
+      &-cups-2 {
+        right: -523px;
+        opacity: 0;
+        @media all and (max-width: 1688px) {
+          display: none;
+        }
+      }
+      &-cups-3 {
+        max-width: 62px;
+        right: -592px;
+        opacity: 0;
+        @media all and (max-width: 1832px) {
+          display: none;
+        }
+      }
+      &-cloud-drinkShop {
+        width: 100%;
+        position: absolute;
+        bottom: -1px;
+        z-index: 20;
+        pointer-events: none;
+      }
     }
+    &__text-list {
+      background-color: $gameBoardBgColor;
+      text-align: center;
+      z-index: 20;
+      vertical-align: middle;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      top: 0px;
+      min-width: 68px;
+      // 修正獎牌overflow問題
+      height: 131px;
+      position: relative;
+      top: -6px;
+      img {
+        width: 36px;
+      }
+    }
+    &__intro {
+      color: $b-DarkBlue-700;
+      margin-bottom: 40px;
+      @include nb-m {
+        margin-bottom: 32px;
+      }
+    }
+    &__play {
+      max-width: 768px;
+      max-height: 703px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+      @include nb-m {
+        max-width: 640px;
+        max-height: 640px;
+      }
+      @include pc-s {
+        max-width: 540px;
+        max-height: 580px;
+      }
+      @include ipad-s {
+        max-width: 440px;
+      }
+      @include phone-l {
+        max-width: 343px;
+      }
+      &-game {
+        background: linear-gradient(
+          to bottom,
+          #00416a,
+          #2c5364,
+          #3a6073,
+          #667db6
+        );
+        margin: 0 auto;
+        padding-top: 24px;
+        min-height: 100vh;
+        @include ipad-s {
+          padding: 12px 16px 0 16px;
+        }
+        &__timer {
+          display: flex;
+          max-width: 246px;
+          justify-content: space-between;
+          font-size: 18px;
+          padding: 10px 47px;
+          color: #fff;
+          background-color: $b-DarkBlue-900;
+          border-radius: 9.4px;
+          margin: 0 auto 21px auto;
+          @include pc-s {
+            margin-bottom: 16px;
+          }
+          @include ipad-s {
+            max-width: 137px;
+            font-size: 13px;
+            padding: 8px 16px;
+            margin-bottom: 12px;
+          }
+        }
+        &__section {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 24px;
+          justify-content: center;
+          max-width: 640px;
+          margin: 0 auto;
+          width: 100%;
+          background-color: $gameBoardBgColor;
+          padding: 24px;
+          border-radius: 8px;
+          @include ipad-s {
+            max-width: 520px;
+            grid-template-columns: repeat(3, 1fr);
+          }
+          @include ipad-xs {
+            padding: 12px;
+            gap: 12px;
+          }
+          img {
+            width: 100%;
+          }
+          .victory-state {
+            grid-column-start: 1;
+            grid-column-end: -1;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          }
+          .card {
+            aspect-ratio: 1 / 1;
+            background-color: $Blue-700;
+            background-size: 100% 100%;
+            background-position: center;
+            background-repeat: no-repeat, no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 8px;
+            padding: 6px;
+            cursor: pointer;
+            border: 6px solid transparent;
+            animation: flipUp 0.5s forwards;
+            img {
+              opacity: 1;
+              transition: opacity 0.5s;
+              max-width: 100%;
+              height: auto;
+            }
+            &.down {
+              animation: flipDown 0.5s forwards;
+              img {
+                opacity: 0;
+              }
+            }
+            &.matched {
+              animation: matching 1s forwards;
+            }
+          }
+
+          @keyframes flipDown {
+            0% {
+              background-color: $Blue-800;
+              transform: rotateY(0deg);
+            }
+            100% {
+              background-color: $Blue-700;
+              transform: rotateY(180deg);
+            }
+          }
+
+          @keyframes flipUp {
+            0% {
+              background-color: $Blue-700;
+              transform: rotateY(180deg);
+            }
+            100% {
+              background-color: $Blue-800;
+              transform: rotateY(0deg);
+            }
+          }
+
+          @keyframes matching {
+            0% {
+              background-color: $Blue-300;
+            }
+            50% {
+              background-color: $Blue-300;
+            }
+            100% {
+              background-color: $Blue-200;
+            }
+          }
+        }
+        &__btn {
+          position: relative;
+          display: block;
+          margin: 48px auto 0 auto;
+          font-size: 36px;
+          font-weight: bold;
+          padding: 12px 40px;
+          border-radius: 36.5px;
+          border: 0;
+          background-color: $challengeBgColor;
+          box-shadow: 0 10px 0 0 $Blue-700;
+          cursor: pointer;
+          transition: all 0.2s ease-out;
+          top: 0;
+          color: #fff;
+          @include nb-m {
+            font-size: 32px;
+            padding: 10px 36px;
+            margin-top: 32px;
+          }
+          @include pc-s {
+            margin-top: 24px;
+          }
+          @include ipad-s {
+            font-size: 24px;
+            padding: 10px 29px;
+            box-shadow: 0 7px 0 0 $Blue-700;
+          }
+          &:hover {
+            box-shadow: 0 4px 0 0 $Blue-700;
+            top: 9px;
+            @include ipad-s {
+              top: 4px;
+            }
+          }
+          &--disabled {
+            pointer-events: none;
+            background-color: $Blue-500;
+            color: #fff;
+            top: 0;
+            box-shadow: 0 12px 0 0 $Blue-400;
+            @include ipad-s {
+              box-shadow: 0 3px 0 0 $Blue-400;
+            }
+          }
+        }
+      }
+    }
+    &__table {
+      position: relative;
+      &__inner {
+        background-color: $Blue-300;
+        height: 104px;
+        bottom: 0;
+        position: absolute;
+        width: 100%;
+      }
+    }
+    &__board {
+      background-color: $b-Blue-500;
+      height: 740px;
+      position: relative;
+      transition: all 0.2s ease-out;
+      @include ipad-s {
+        height: 640px;
+      }
+      @include phone-l {
+        height: 540px;
+      }
+      &-scroll {
+        max-width: 950px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        position: relative;
+        top: 100px;
+        z-index: 20;
+        @include ipad-m {
+          max-width: 840px;
+        }
+        @include ipad-s {
+          top: 110px;
+          padding-left: 16px;
+        }
+        @include phone-l {
+          top: 80px;
+          margin-left: 16px;
+        }
+        @include phone-m {
+          margin-left: 0;
+        }
+        &__cards {
+          flex-grow: 1;
+          display: flex;
+          height: 180px;
+          background-color: $gameBoardBgColor;
+          position: relative;
+          padding: 27px 0 34px 0;
+          overflow: hidden;
+          max-width: 950px - 145px - 16px;
+          @include phone-l {
+            height: 160px;
+            padding: 18px 0 22px 0;
+          }
+          .swiper {
+            width: 90%;
+          }
+          .swiper-pagination {
+            bottom: 10px;
+            left: 50%;
+            transition: all 0.2s ease-out;
+            @include phone-l {
+              bottom: 8px;
+            }
+            .swiper-pagination-bullet {
+              opacity: 1;
+              width: 10px;
+              height: 10px;
+              margin: 0 4px;
+              background-color: #f3f9fb;
+              @include phone-l {
+                width: 5px;
+                height: 5px;
+              }
+            }
+            .swiper-pagination-bullet-active {
+              width: 38px;
+              border-radius: 5.8px;
+              background-color: #fff;
+              @include phone-l {
+                width: 16px;
+                height: 5px;
+              }
+            }
+          }
+          &__item {
+            background-color: #fff;
+            padding: 12px 16px;
+            border-radius: 10px;
+            position: relative;
+            div {
+              display: flex;
+              justify-content: space-between;
+            }
+            img {
+              position: absolute;
+              right: 16px;
+              top: -6px;
+              max-width: 27px;
+            }
+            p {
+              font-weight: bold;
+              color: $b-DarkBlue-800;
+            }
+            hr {
+              border-top: 1px solid $b-DarkBlue-800;
+              margin: 8px 0 7px 0;
+            }
+            span {
+              display: block;
+              font-size: 14px;
+              color: $b-DarkBlue-800;
+              margin-top: 28px;
+            }
+          }
+        }
+      }
+    }
+  }
+  &-modal {
+    position: relative;
+    $pcBackgroundWidth: 493px;
+    opacity: 0;
+    display: none;
+    background-color: $gameBoardBgColor;
+    height: 475px;
+    &__title {
+      text-align: center;
+      img {
+        height: 58px;
+        @include nb-m {
+          height: 46px;
+        }
+      }
+    }
+    &__nav {
+      display: flex;
+      &__item {
+        flex-grow: 1;
+        color: $b-DarkBlue-700;
+        border: 1px solid $b-DarkBlue-700;
+        text-align: center;
+        padding: 10px 0;
+        margin-top: 33px;
+        font-weight: bold;
+        cursor: pointer;
+        @include nb-m {
+          margin-top: 24px;
+        }
+        &:hover {
+          background-color: $b-BlueGray-300;
+        }
+        &:first-child {
+          border-top-left-radius: 8px;
+          border-bottom-left-radius: 8px;
+          border-right: none;
+        }
+        &:last-child {
+          border-top-right-radius: 8px;
+          border-bottom-right-radius: 8px;
+        }
+      }
+      &__item--selected {
+        background-color: $b-DarkBlue-700;
+        color: #fff;
+        &:hover {
+          background-color: $b-DarkBlue-700;
+        }
+      }
+    }
+    .modal-common {
+      position: relative;
+      @include ipad-s {
+        width: 100%;
+      }
+      p {
+        margin-top: 0;
+        color: $b-DarkBlue-900;
+      }
+      span {
+        color: $b-DarkBlue-300;
+        font-size: 20px;
+        text-align: center;
+        display: block;
+        @include phone-l {
+          font-size: 16px;
+        }
+        &.btn-note {
+          font-size: 13px;
+          @include phone-l {
+            font-size: 12px;
+          }
+        }
+      }
+      button {
+        font-family: "微軟正黑體" !important;
+        position: relative;
+        display: block;
+        background-color: $challengeBgColor;
+        margin: 16px auto;
+        font-size: 24px;
+        font-weight: bold;
+        padding: 10px 29px;
+        border-radius: 26.4px;
+        border: 0;
+        box-shadow: 0 7px 0 0 $Blue-700;
+        cursor: pointer;
+        transition: all 0.2s ease-out;
+        top: 0;
+        color: #fff;
+        &:hover {
+          box-shadow: 0 3px 0 0 $Blue-700;
+          top: 4px;
+        }
+      }
+      &__time {
+        display: inline-block !important;
+        @include ipad-s {
+          display: none !important;
+        }
+      }
+      &__wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        background-image: url(/img/active/2022_bestcandidate/img_dialog_pop_l_PC.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 100%;
+        position: relative;
+        @include ipad-s {
+          background-image: url(/img/active/2022_bestcandidate/img_dialog_pop_l_M.png);
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: 100%;
+        }
+      }
+      &__bg-head {
+        position: absolute;
+        right: -128px;
+        bottom: -188px;
+        transform: scaleX(-1) rotate(-8deg);
+        width: 242px;
+        @include pc-m {
+          right: -88px;
+          bottom: -138px;
+          width: 180px;
+        }
+        @include nb-m {
+          right: -58px;
+          bottom: -118px;
+          width: 140px;
+        }
+        @include pc-sm {
+          right: -48px;
+          bottom: -38px;
+          width: 96px;
+        }
+        @include ipad-s {
+          width: 133px;
+          right: -60px;
+          bottom: -96px;
+        }
+        @include ipad-xs {
+          right: -32px;
+          bottom: -130px;
+        }
+      }
+      &__unknown {
+        background-color: $b-Blue-100;
+        text-align: center;
+        padding: 30px 0;
+        margin: 16px 0 8px 0;
+        border-radius: 8px;
+        @include ipad-s {
+          padding: 24px;
+        }
+        @include phone-l {
+          margin: 15px 0 16px 0;
+        }
+        img {
+          width: 176px;
+          @include ipad-s {
+            width: 149px;
+          }
+        }
+      }
+      &__blur {
+        height: 35px;
+        width: 100%;
+        background: linear-gradient(
+          rgba(255, 255, 255, 0),
+          rgba(255, 255, 255, 0.7),
+          rgb(255, 255, 255) 100%
+        );
+        position: absolute;
+        bottom: -1px;
+        margin-top: 0 !important;
+      }
+      &__items {
+        max-height: 220px;
+        min-height: 220px;
+        padding-bottom: 18px;
+        overflow-y: auto;
+        position: relative;
+        width: calc(100% + 52px);
+        @include nb-m {
+          width: calc(100% + 32px);
+        }
+        @include pc-sm {
+          max-height: 210px;
+          min-height: 210px;
+        }
+        @include ipad-s {
+          max-height: 190px;
+          min-height: 190px;
+          width: calc(100% + 30px);
+        }
+        li {
+          display: flex;
+          align-items: center;
+          margin-top: 16px;
+          @include ipad-s {
+            margin-top: 12px;
+          }
+        }
+        p {
+          text-align: left;
+          margin-bottom: 4px;
+          font-weight: bold;
+        }
+        span {
+          text-align: left;
+          font-size: 13px;
+          @include ipad-s {
+            font-size: 12px;
+          }
+        }
+        &::-webkit-scrollbar {
+          width: 5px;
+        }
+        &::-webkit-scrollbar-thumb {
+          background-color: $b-BlueGray-500;
+          border-radius: 3.5px;
+        }
+        &__wrapper {
+          position: relative;
+          p {
+            text-align: left;
+            line-height: 1.5;
+            font-size: 16px;
+            @include ipad-s {
+              font-size: 14px;
+            }
+          }
+        }
+        &__icon {
+          margin-right: 12px;
+          background-color: #fee8ed;
+          border-radius: 8px;
+          @include ipad-s {
+            margin-right: 8px;
+          }
+          img {
+            width: 56px;
+            @include phone-l {
+              width: 48px;
+            }
+          }
+        }
+      }
+      &__gap {
+        margin-top: 24px;
+      }
+    }
+    .game-result {
+      &__info {
+        margin: 32px 0 40px 0;
+        @include ipad-s {
+          margin: 24px 0 32px 0;
+        }
+        p {
+          line-height: 1.5;
+          text-align: center;
+          color: $b-DarkBlue-700;
+          font-size: 24px;
+          font-weight: bold;
+        }
+        &.game-result__info--success p {
+          @include ipad-s {
+            font-size: 20px;
+          }
+        }
+        &__boarding {
+          margin-top: 16px;
+        }
+        &__invite {
+          display: block;
+          text-align: center;
+          color: $b-DarkBlue-400;
+          font-size: 18px;
+          line-height: 1.5;
+          @include ipad-s {
+            font-size: 16px;
+            margin-bottom: 0;
+          }
+        }
+      }
+      &__form {
+        input {
+          width: 100%;
+          max-width: 312px;
+          border: 2px solid $b-DarkBlue-20;
+          border-radius: 8px;
+          color: $b-DarkBlue-900;
+          font-size: 18px;
+          padding: 12px 0;
+          text-align: center;
+          margin-bottom: 72px;
+          @include pc-sm {
+            margin-bottom: 48px;
+          }
+          @include phone-l {
+            margin-bottom: 56px;
+          }
+        }
+        label {
+          display: block;
+          text-align: center;
+          color: $b-DarkBlue-400;
+          font-size: 18px;
+          margin-bottom: 16px;
+          @include ipad-s {
+            font-size: 16px;
+            margin-bottom: 12px;
+          }
+        }
+      }
+      &__btn {
+        &:before {
+          content: "";
+          display: inline-block;
+          width: 0;
+          height: 0;
+          border-radius: 50%;
+          border: 0 none;
+          margin-right: 0;
+          transition: all 0.5s;
+        }
+        &--black {
+          box-shadow: 0 7px 0 0 $b-DarkBlue-900 !important;
+          background-color: $b-DarkBlue-500 !important;
+          color: #fff !important;
+          position: relative;
+          &:hover {
+            top: 4px;
+            box-shadow: 0 3px 0 0 $b-DarkBlue-900 !important;
+          }
+        }
+        &.game-result__btn--disabled,
+        &.game-result__btn--loading {
+          pointer-events: none;
+          background-color: $Blue-500;
+          color: #fff;
+          box-shadow: 0 7px 0 0 $Blue-400;
+          @include ipad-s {
+            box-shadow: 0 3px 0 0 $Blue-400;
+          }
+        }
+        &--loading:before {
+          width: 20px;
+          height: 20px;
+          border: 2px solid #99ccff;
+          border-top-color: white;
+          margin-right: 10px;
+          animation: rotating 1s infinite;
+        }
+      }
+      &__actions {
+        margin-top: 100px;
+        button {
+          margin-top: 27px;
+        }
+      }
+    }
+    .get-coupon {
+      position: relative;
+      @include ipad-s {
+        width: 100%;
+      }
+      p {
+        font-size: 32px;
+        color: $b-DarkBlue-700;
+        line-height: 1.5;
+        margin-bottom: 8px;
+        font-weight: bold;
+        @include phone-l {
+          font-size: 24px;
+        }
+      }
+      span {
+        line-height: 1.5;
+        color: $b-DarkBlue-400;
+      }
+      button {
+        margin: 32px auto 0 auto;
+      }
+      &__wrapper {
+        padding: 159px 99px 163px 100px;
+        background-image: url(/img/active/2022_bestcandidate/img_pop_deco_left.svg),
+          url(/img/active/2022_bestcandidate/img_pop_deco_right.svg),
+          url(/img/active/2022_bestcandidate/img_dialog_pop_s_PC.png);
+        background-position: left 54px top 101px, right 54px bottom 106px,
+          center;
+        background-repeat: no-repeat;
+        background-size: 31px 24px, 31px 25px, contain;
+        position: relative;
+        @include pc-sm {
+          padding: 159px 80px 163px 80px;
+          // width: 400px;
+        }
+        @include ipad-s {
+          padding: 126px 79px 125px 73px;
+          background-image: url(/img/active/2022_bestcandidate/img_pop_deco_left.svg),
+            url(/img/active/2022_bestcandidate/img_pop_deco_right.svg),
+            url(/img/active/2022_bestcandidate/img_dialog_pop_s_M.png);
+          background-position: left 40px top 90px, right 40px bottom 94px,
+            center;
+          background-size: 28px 22px, 28px 23px, contain;
+        }
+        &.get-coupon__wrapper--tight {
+          @include pc-sm {
+            width: auto;
+          }
+        }
+      }
+      &__bg-head {
+        position: absolute;
+        right: -136px;
+        bottom: -196px;
+        transform: scaleX(-1) rotate(-8deg);
+        width: 242px;
+        @include pc-m {
+          right: -88px;
+          bottom: -138px;
+          width: 180px;
+        }
+        @include nb-m {
+          right: -58px;
+          bottom: -118px;
+          width: 140px;
+        }
+        @include pc-sm {
+          right: -38px;
+          bottom: -52px;
+          width: 96px;
+        }
+        @include ipad-s {
+          width: 133px;
+          right: -60px;
+          bottom: -96px;
+        }
+        @include ipad-xs {
+          right: -32px;
+          bottom: -130px;
+        }
+        @include phone-l {
+          right: 4px;
+          bottom: -136px;
+        }
+      }
+      a.close-modal {
+        @include phone-l {
+          right: 32px;
+        }
+        &.close-modal--tight {
+          @include phone-l {
+            right: 0;
+          }
+        }
+      }
+    }
+  }
 }
