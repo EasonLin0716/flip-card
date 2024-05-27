@@ -618,6 +618,7 @@ $b-BlueGray-500: #e3e8f0;
     }
     .modal-common {
       position: relative;
+      height: 100%;
       @include ipad-s {
         width: 100%;
       }
@@ -673,17 +674,8 @@ $b-BlueGray-500: #e3e8f0;
         align-items: center;
         justify-content: center;
         width: 100%;
-        background-image: url(/img/active/2022_bestcandidate/img_dialog_pop_l_PC.png);
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: 100%;
+        height: 100%;
         position: relative;
-        @include ipad-s {
-          background-image: url(/img/active/2022_bestcandidate/img_dialog_pop_l_M.png);
-          background-position: center;
-          background-repeat: no-repeat;
-          background-size: 100%;
-        }
       }
       &__bg-head {
         position: absolute;
@@ -841,9 +833,6 @@ $b-BlueGray-500: #e3e8f0;
             font-size: 20px;
           }
         }
-        &__boarding {
-          margin-top: 16px;
-        }
         &__invite {
           display: block;
           text-align: center;
@@ -924,12 +913,6 @@ $b-BlueGray-500: #e3e8f0;
           border-top-color: white;
           margin-right: 10px;
           animation: rotating 1s infinite;
-        }
-      }
-      &__actions {
-        margin-top: 100px;
-        button {
-          margin-top: 27px;
         }
       }
     }

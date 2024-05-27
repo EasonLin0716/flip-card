@@ -1,5 +1,39 @@
+<script setup lang="ts">
+import { ref, defineExpose } from 'vue';
+import modal from "@easonlin0716/js-modal";
+
+const IMG_URL = '';
+const cardImgPath = `${IMG_URL}/path/to`;
+
+const elRef = ref<HTMLElement | null>(null);
+
+const emit = defineEmits(['replay']);
+
+const handleReplay = () => {
+    closeModal();
+    emit('replay');
+};
+
+const openModal = () => {
+    modal.setOptions({
+        showClose: false,
+        modalClass: 'content-modal',
+        clickClose: false,
+    });
+    modal.open(elRef.value);
+};
+
+const closeModal = () => {
+    modal.close();
+};
+defineExpose({
+    openModal,
+    closeModal,
+});
+</script>
+
 <template>
-    <section ref="loseGameModal" class="content-modal">
+    <section ref="elRef" class="content-modal">
         <div class="modal-common">
             <div class="get-coupon">
                 <div class="get-coupon__wrapper get-coupon__wrapper--tight">
@@ -13,30 +47,3 @@
         </div>
     </section>
 </template>
-<script>
-import modal from "@easonlin0716/js-modal";
-const IMG_URL = ''
-export default {
-    name: 'loseGameModal',
-    data() {
-        return {
-            cardImgPath: `${IMG_URL}/path/to`,
-        }
-    },
-    methods: {
-        handleReplay() {
-            this.closeModal();
-            this.$emit('replay');
-        },
-        openModal(type = 1, couponNum = 1) {
-            this.type = type;
-            this.couponNum = couponNum;
-            modal.setOptions({ showClose: false, modalClass: 'content-modal', clickClose: false, });
-            modal.open(this.$refs.loseGameModal);
-        },
-        closeModal() {
-            modal.close();
-        },
-    }
-}
-</script>

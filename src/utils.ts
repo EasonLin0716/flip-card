@@ -24,3 +24,11 @@ export const checkMatch = (comparing: Card, compared: Card) => {
 export const sleep = (ms: number = 2000) => {
   return new Promise((resolve) => setTimeout(resolve, ms));
 };
+
+export const zeroPrefix = (num: number, digit: number): string => {
+  let zero: string = "";
+  for (var i = 0; i < digit; i++) {
+    zero += "0";
+  }
+  return (zero + num).slice(-digit);
+};

@@ -4,12 +4,11 @@ import type { Ref } from 'vue';
 import apis from '../apis';
 import { GetRecordLevelRequestPayloadType, CounterType } from "../constants";
 import modal from "@easonlin0716/js-modal";
-const IMG_URL = '';
 interface Props {
     counter: CounterType;
 }
 const props = defineProps<Props>();
-const gameResultModalRef = ref(null);
+const elRef = ref<HTMLElement | null>(null);
 const gameResult = ref(null);
 const resultLevel: Ref<number> = ref(0);
 const nickName: Ref<string> = ref('');
@@ -22,9 +21,6 @@ watch(nickName, (newVal: string, oldVal: string) => {
         nickName.value = newVal;
     }
 });
-const handleRenderNewRecordToBoard = (level: number) => {
-    // modal.close();
-}
 const handleSubmit = async () => {
     try {
         isLoading.value = true;
@@ -37,7 +33,6 @@ const handleSubmit = async () => {
         } } = await apis.getRecordLevel(requestPayload);
         if (data.level !== undefined) {
             resultLevel.value = data.level;
-            handleRenderNewRecordToBoard(data.level);
         } else {
             throw new Error('Missing level in response data');
         }
@@ -47,15 +42,9 @@ const handleSubmit = async () => {
         isLoading.value = false;
     }
 }
-const handleGetCoupon = () => {
-
-}
-const handleShareGameResultToFacebook = () => {
-
-}
 const openModal = () => {
     modal.setOptions({ clickClose: false, });
-    modal.open(gameResultModalRef.value);
+    modal.open(elRef.value);
 }
 const closeModal = () => {
     gameResult.value = null;
@@ -68,7 +57,7 @@ defineExpose({
 </script>
 
 <template>
-    <section ref="gameResultModalRef" class="content-modal">
+    <section ref="elRef" class="content-modal">
         <div class="modal-common">
             <div class="modal-common__wrapper">
                 <template v-if="resultLevel === 0">
@@ -89,16 +78,13 @@ defineExpose({
                     <div class="game-result__info">
                         <div v-if="resultLevel" class="game-result__info__boarding">
                             <label class="game-result__info__invite">你超強，排名第 {{ resultLevel }} 名！</label>
-                            <label class="game-result__info__invite">趕快邀請朋友一起來挑戰！</label>
                         </div>
                         <div v-else class="game-result__info__invite game-result__info__boarding">
-                            <label class="game-result__info__invite">雖然沒進入排行榜</label>
-                            <label class="game-result__info__invite">但沒關係快號召朋友一起來挑戰！</label>
+                            <label class="game-result__info__invite">雖然沒進入排行榜，再挑戰一次也不錯！</label>
                         </div>
                     </div>
                     <div class="game-result__actions">
-                        <button @click="handleGetCoupon">領抽獎券</button>
-                        <button @click="handleShareGameResultToFacebook" class="game-result__btn--black">分享戰績</button>
+                        <button @click="closeModal">關閉視窗</button>
                     </div>
                 </template>
             </div>

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, computed, watch, onMounted } from 'vue'
-import { shuffleCards, checkMatch } from './utils';
+import { shuffleCards, checkMatch, zeroPrefix } from './utils';
 import { GAME_LIMIT_MINUTE, icons, CounterType, Card, PlayState } from './constants';
 import GameTimer from './components/GameTimer.vue';
 import ChallengeBtn from './components/ChallengeBtn.vue';
@@ -11,10 +11,10 @@ import type { Ref } from 'vue'
 type CardCount = {
     cardsMatched: number;
 }
-const GameResultModalRef = ref(null);
-const LoseGameModalRef = ref(null);
+const GameResultModalRef = ref<any>(null);
+const LoseGameModalRef = ref<any>(null);
 const timer: Ref<number> = ref(0);
-const timeBegan: Ref<Date | null> = ref(null);
+const timeBegan: Ref<number> = ref(0);
 const counter: Ref<CounterType> = ref('0:00.00');
 const cards: Ref<Card[]> = ref([]);
 const playState: Ref<PlayState> = ref(0);
@@ -35,19 +35,14 @@ const victory = computed<boolean>(() => {
         return true;
     } return false;
 });
-watch(victory, (val: boolean) => {
-    if (val === true) {
-        handleWin()
+watch(victory, (isWin: boolean) => {
+    if (isWin === true) {
+        handleWin();
     }
 });
 onMounted(() => {
-    cards.value = initCards(icons.length * 2);
     cardsShuffle();
-    // GameResultModalRef.value.openModal();
 });
-const handleGetCoupon = () => {
-    // nothing
-};
 const startGame = () => {
     cardsShuffle();
     startCounter();
@@ -58,7 +53,8 @@ const startGameByClickCard = () => {
     playState.value = 1;
 }
 const cardsShuffle = () => {
-    cards.value = cards.value.map(() => ({
+    const initialCardIndex: Array<Number> = getValueWithNumbers(icons.length * 2);
+    cards.value = initialCardIndex.map(() => ({
         icon: '',
         down: true,
         matched: false,
@@ -79,8 +75,8 @@ const handleClick = (cardIndex: number) => {
     cardClicked.down = false;
     comparingIcons.value.push(cardClicked);
     if (comparingIcons.value.length % 2 === 0 && comparingIcons.value.length > 0) {
-        const comparing: Card = comparingIcons.value.pop();
-        const compared: Card = comparingIcons.value.pop();
+        const comparing: Card | undefined = comparingIcons.value.pop();
+        const compared: Card | undefined = comparingIcons.value.pop();
         if (comparing && compared) {
             const match: boolean = checkMatch(comparing, compared);
             setTimeout(() => {
@@ -98,17 +94,17 @@ const handleClick = (cardIndex: number) => {
 const handleWin = () => {
     playState.value = 0;
     stopCounter();
-    GameResultModalRef.openModal();
+    GameResultModalRef.value.openModal();
 }
 const handleLose = () => {
     playState.value = 0;
     stopCounter();
     counter.value = `${GAME_LIMIT_MINUTE}:00.00`
-    LoseGameModalRef.openModal(3);
+    LoseGameModalRef.value.openModal();
 }
 const startCounter = () => {
-    const count = () => {
-        const currentTime: Date = new Date();
+    const _count = () => {
+        const currentTime: number = Date.now();
         const timeElapsed: Date = new Date(currentTime - timeBegan.value);
         const min: number = timeElapsed.getUTCMinutes();
         const sec: number = timeElapsed.getUTCSeconds();
@@ -120,27 +116,19 @@ const startCounter = () => {
             return;
         }
     }
-
-    function zeroPrefix(num: number, digit: number): string {
-        let zero: string = '';
-        for (var i = 0; i < digit; i++) {
-            zero += '0';
-        }
-        return (zero + num).slice(-digit);
-    }
-    if (timeBegan.value !== null) return null;
+    if (timeBegan.value !== 0) return null;
     counter.value = '0:00.00';
-    timeBegan.value = new Date();
-    timer.value = setInterval(count, 75);
+    timeBegan.value = Date.now();
+    timer.value = setInterval(_count, 75);
 }
 const stopCounter = () => {
     if (timer.value !== 0) {
         clearInterval(timer.value);
         timer.value = 0;
     }
-    timeBegan.value = null;
+    timeBegan.value = 0;
 }
-const initCards = (len: number) => {
+const getValueWithNumbers = (len: number): Array<number> => {
     const ary: Array<number> = [];
     for (let i = 0; i < len; i++) {
         ary.push(i);
@@ -156,7 +144,7 @@ const initCards = (len: number) => {
             <GameCard v-for="(card, index) in cards" :key="index" :card="card" @cardClick="handleClick(index)" />
         </div>
         <ChallengeBtn :playState="playState" @startGame="startGame" />
-        <GameResultModal ref="GameResultModalRef" :counter="counter" @getCoupon="handleGetCoupon" />
+        <GameResultModal ref="GameResultModalRef" :counter="counter" />
         <LoseGameModal ref="LoseGameModalRef" @replay="startGame" />
     </div>
 </template>
