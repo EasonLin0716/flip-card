@@ -6,6 +6,10 @@ interface Props {
     card: Card;
 }
 
+type CardBackStyle = {
+    backgroundImage?: string;
+};
+
 const props = defineProps<Props>();
 
 interface EmitType {
@@ -14,10 +18,11 @@ interface EmitType {
 
 const emits = defineEmits<EmitType>();
 
-const cardBackStyle = computed(() => {
+
+const cardBackStyle = computed<CardBackStyle>(() => {
     return props.card.down && !props.card.matched ? { backgroundImage: `url(${cardBackImgPath})` } : {}
 });
-const cardBackImgUrl = computed(() => 'https://fakeimg.pl/300x300/1F3A52');
+const cardBackImgUrl = computed<string>(() => cardBackImgPath);
 const cardClickHandler = () => {
     emits('cardClick');
 };

@@ -22,7 +22,7 @@ export type GetRecordLevelRequestPayloadType = {
   counter: CounterType;
 };
 
-export const cardBackImgPath: string = "https://fakeimg.pl/300x300/1F3A52/fff";
+export const cardBackImgPath: string = "/card-back.png";
 export const icons: CardIcon = [
   "chick.png",
   "donut.png",
