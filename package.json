@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@easonlin0716/js-modal": "^0.1.0",
+    "@easonlin0716/js-modal": "^0.2.0",
     "vue": "^3.4.21"
   },
   "devDependencies": {

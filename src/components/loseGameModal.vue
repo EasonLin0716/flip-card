@@ -5,7 +5,7 @@ import modal from "@easonlin0716/js-modal";
 const IMG_URL = '';
 const cardImgPath = `${IMG_URL}/path/to`;
 
-const elRef = ref<HTMLElement | null>(null);
+const elRef = ref<any>(null);
 
 const emit = defineEmits(['replay']);
 

@@ -8,7 +8,7 @@ interface Props {
     counter: CounterType;
 }
 const props = defineProps<Props>();
-const elRef = ref<HTMLElement | null>(null);
+const elRef = ref<any>(null);
 const gameResult = ref(null);
 const resultLevel: Ref<number> = ref(0);
 const nickName: Ref<string> = ref('');
