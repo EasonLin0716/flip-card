@@ -2,9 +2,6 @@
 import { ref, defineExpose } from 'vue';
 import modal from "@easonlin0716/js-modal";
 
-const IMG_URL = '';
-const cardImgPath = `${IMG_URL}/path/to`;
-
 const elRef = ref<any>(null);
 
 const emit = defineEmits(['replay']);
@@ -41,7 +38,6 @@ defineExpose({
                     <span>想加入排行榜得再加把勁</span>
                     <button @click="handleReplay">重新挑戰</button>
                 </div>
-                <img class="get-coupon__bg-head" :src="cardImgPath + '/img_head.png'" alt="背景圖">
                 <a href="javascript:;" class="close-modal close-modal--tight" @click="closeModal"></a>
             </div>
         </div>
