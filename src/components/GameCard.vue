@@ -31,6 +31,6 @@ const cardClickHandler = () => {
     <div :class="[{ 'down': props.card.down && !props.card.matched, 'up': !props.card.down, 'matched': props.card.matched }, ' card']"
         :style="cardBackStyle" @click="cardClickHandler">
         <img v-if="props.card.down" :src="cardBackImgUrl" alt="牌背" width="104" height="104">
-        <img v-else :src="`/${props.card.icon}`" alt="牌面">
+        <img v-else :src="props.card.icon" alt="牌面">
     </div>
 </template>
