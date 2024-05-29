@@ -22,13 +22,13 @@ export type GetRecordLevelRequestPayloadType = {
   counter: CounterType;
 };
 
-export const cardBackImgPath: string = "/img/card-back.png";
+export const cardBackImgPath: string = "/flip-card/img/card-back.png";
 export const icons: CardIcon = [
-  "img/chick.png",
-  "img/donut.png",
-  "img/heart.png",
-  "img/kitty.png",
-  "img/panda.png",
-  "img/stars.png",
+  "/flip-card/img/chick.png",
+  "/flip-card/img/donut.png",
+  "/flip-card/img/heart.png",
+  "/flip-card/img/kitty.png",
+  "/flip-card/img/panda.png",
+  "/flip-card/img/stars.png",
 ];
 export const GAME_LIMIT_MINUTE: number = 5;
