@@ -940,9 +940,6 @@ $b-BlueGray-500: #e3e8f0;
       }
       &__wrapper {
         padding: 159px 99px 163px 100px;
-        background-image: url(/img/active/2022_bestcandidate/img_pop_deco_left.svg),
-          url(/img/active/2022_bestcandidate/img_pop_deco_right.svg),
-          url(/img/active/2022_bestcandidate/img_dialog_pop_s_PC.png);
         background-position: left 54px top 101px, right 54px bottom 106px,
           center;
         background-repeat: no-repeat;
@@ -954,9 +951,6 @@ $b-BlueGray-500: #e3e8f0;
         }
         @include ipad-s {
           padding: 126px 79px 125px 73px;
-          background-image: url(/img/active/2022_bestcandidate/img_pop_deco_left.svg),
-            url(/img/active/2022_bestcandidate/img_pop_deco_right.svg),
-            url(/img/active/2022_bestcandidate/img_dialog_pop_s_M.png);
           background-position: left 40px top 90px, right 40px bottom 94px,
             center;
           background-size: 28px 22px, 28px 23px, contain;
