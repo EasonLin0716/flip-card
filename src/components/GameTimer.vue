@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { CounterType } from '../constants';
-interface Counter {
-    counter: CounterType;
+import { Counter } from '../constants';
+interface ICounter {
+    counter: Counter;
 }
 
-const props = defineProps<Counter>();
+const props = defineProps<ICounter>();
 </script>
 
 <template>

@@ -1,10 +1,5 @@
 export const GAME_LIMIT_MINUTE: number = 5;
 export const IMAGE_PATH: string = "/flip-card/img/";
-export interface Card {
-    icon: string;
-    down: boolean;
-    matched: boolean;
-}
 export enum PLAY_STATE {
     NOT_STARTED = 0,
     PLAYING = 1,
@@ -13,19 +8,24 @@ export enum PLAY_STATE_TEXT {
     NOT_STARTED = "開始遊戲",
     PLAYING = "挑戰中...",
 }
-export type PlayStateType = PLAY_STATE.NOT_STARTED | PLAY_STATE.PLAYING;
-export type PlayStateTextType =
+export type Card = {
+    icon: string;
+    down: boolean;
+    matched: boolean;
+}
+export type PlayState = PLAY_STATE.NOT_STARTED | PLAY_STATE.PLAYING;
+export type PlayStateText =
     | PLAY_STATE_TEXT.NOT_STARTED
     | PLAY_STATE_TEXT.PLAYING;
-export type CounterType = `${string}:${string}${string}.${string}${string}`;
-export type CardIconType = string[];
-export type GetRecordLevelRequestPayloadType = {
+export type Counter = `${string}:${string}${string}.${string}${string}`;
+export type CardIcon = string[];
+export type GetRecordLevelRequestPayload = {
     nickName: string;
-    counter: CounterType;
+    counter: Counter;
 };
 
 export const cardBackImgPath: string = `${IMAGE_PATH}card-back.png`;
-export const icons: CardIconType = [
+export const icons: CardIcon = [
     `${IMAGE_PATH}chick.png`,
     `${IMAGE_PATH}donut.png`,
     `${IMAGE_PATH}heart.png`,

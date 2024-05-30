@@ -1,11 +1,11 @@
-import { GetRecordLevelRequestPayloadType } from "./constants";
+import { GetRecordLevelRequestPayload } from "./constants";
 const sleep = (n: number) => new Promise((resolve) => setTimeout(resolve, n));
 const getRandomNumberByRange = (min: number, max: number) => {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
 export default {
-  getRecordLevel: async (payload: GetRecordLevelRequestPayloadType) => {
+  getRecordLevel: async (payload: GetRecordLevelRequestPayload) => {
     await sleep(1000);
     return {
       data: {

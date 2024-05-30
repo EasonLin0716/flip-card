@@ -2,10 +2,10 @@
 import { ref, watch, defineExpose } from 'vue';
 import type { Ref } from 'vue';
 import apis from '../apis';
-import { GetRecordLevelRequestPayloadType, CounterType } from "../constants";
+import { GetRecordLevelRequestPayload, Counter } from "../constants";
 import modal from "@easonlin0716/js-modal";
 interface Props {
-    counter: CounterType;
+    counter: Counter;
 }
 const props = defineProps<Props>();
 const elRef = ref<any>(null);
@@ -24,7 +24,7 @@ watch(nickName, (newVal: string, oldVal: string) => {
 const handleSubmit = async () => {
     try {
         isLoading.value = true;
-        const requestPayload: GetRecordLevelRequestPayloadType = {
+        const requestPayload: GetRecordLevelRequestPayload = {
             nickName: nickName.value,
             counter: props.counter,
         }
