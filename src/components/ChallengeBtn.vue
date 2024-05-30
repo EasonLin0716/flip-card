@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import { PLAY_STATE, PLAY_STATE_TEXT, PlayState } from '../constants';
+import { PLAY_STATE, PLAY_STATE_TEXT, PlayStateType } from '../constants';
 
 interface Props {
-    playState: PlayState;
+    playState: PlayStateType;
 }
 
 const props = defineProps<Props>();

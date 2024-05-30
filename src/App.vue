@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, computed, watch, onMounted } from 'vue'
 import { shuffleCards, checkMatch, zeroPrefix } from './utils';
-import { GAME_LIMIT_MINUTE, icons, CounterType, Card, PlayState } from './constants';
+import { GAME_LIMIT_MINUTE, icons, CounterType, Card, PlayStateType } from './constants';
 import GameTimer from './components/GameTimer.vue';
 import ChallengeBtn from './components/ChallengeBtn.vue';
 import GameCard from './components/GameCard.vue';
@@ -17,7 +17,7 @@ const timer: Ref<number> = ref(0);
 const timeBegan: Ref<number> = ref(0);
 const counter: Ref<CounterType> = ref('0:00.00');
 const cards: Ref<Card[]> = ref([]);
-const playState: Ref<PlayState> = ref(0);
+const playState: Ref<PlayStateType> = ref(0);
 const comparingIcons: Ref<Card[]> = ref([]);
 const cardCount = computed<CardCount>(() => {
     let cardMatchedCount = 0;
