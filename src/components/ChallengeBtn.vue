@@ -8,11 +8,11 @@ interface Props {
 
 const props = defineProps<Props>();
 
-interface EmitType {
+interface Emits {
     (event: 'startGame'): void;
 };
 
-const emits = defineEmits<EmitType>();
+const emits = defineEmits<Emits>();
 
 const isPlaying = computed(() => props.playState === PLAY_STATE.PLAYING);
 

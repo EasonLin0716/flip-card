@@ -12,11 +12,11 @@ type CardBackStyle = {
 
 const props = defineProps<Props>();
 
-interface EmitType {
+interface Emits {
     (event: 'cardClick'): void;
 };
 
-const emits = defineEmits<EmitType>();
+const emits = defineEmits<Emits>();
 
 
 const cardBackStyle = computed<CardBackStyle>(() => {
