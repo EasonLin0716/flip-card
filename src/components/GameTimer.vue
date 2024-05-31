@@ -6,10 +6,36 @@ interface ICounter {
 
 const props = defineProps<ICounter>();
 </script>
-
 <template>
-    <div class="content-memory__play-game__timer">
+    <div class="game-timer">
         <span>花費時間</span>
-        <span class="content-memory__play-game__timer__tick">{{ props.counter }}</span>
+        <span class="tick">{{ props.counter }}</span>
     </div>
 </template>
+<style lang="scss" scoped>
+@import '../styles/_variables.scss';
+@import '../styles/_mixins.scss';
+
+.game-timer {
+    display: flex;
+    max-width: 246px;
+    justify-content: space-between;
+    font-size: 18px;
+    padding: 10px 47px;
+    color: #fff;
+    background-color: $DarkBlue-800;
+    border-radius: 9.4px;
+    margin: 0 auto 21px auto;
+
+    @include pc-s {
+        margin-bottom: 16px;
+    }
+
+    @include ipad-s {
+        max-width: 137px;
+        font-size: 13px;
+        padding: 8px 16px;
+        margin-bottom: 12px;
+    }
+}
+</style>
