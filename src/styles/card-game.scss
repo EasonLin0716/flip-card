@@ -1,68 +1,5 @@
-@mixin phone-m {
-  @media all and (max-width: 375px) {
-    @content;
-  }
-}
-@mixin phone-l {
-  @media all and (max-width: 414px) {
-    @content;
-  }
-}
-@mixin ipad-xs {
-  @media all and (max-width: 576px) {
-    @content;
-  }
-}
-@mixin ipad-s {
-  @media all and (max-width: 768px) {
-    @content;
-  }
-}
-@mixin ipad-m {
-  @media all and (max-width: 1024px) {
-    @content;
-  }
-}
-@mixin pc-s {
-  @media all and (max-width: 1280px) {
-    @content;
-  }
-}
-@mixin pc-sm {
-  @media all and (max-width: 1440px) {
-    @content;
-  }
-}
-@mixin pc-mm {
-  @media all and (max-width: 1536px) {
-    @content;
-  }
-}
-@mixin pc-m {
-  @media all and (max-width: 1680px) {
-    @content;
-  }
-}
-
-$gameBoardBgColor: #e7f3f7;
-$challengeBgColor: #2c5364;
-$DarkBlue-200: #e9eaeb;
-$DarkBlue-300: #80858c;
-$DarkBlue-400: #6a7079;
-$DarkBlue-500: #555c66;
-$DarkBlue-600: #353d49;
-$DarkBlue-700: #2b3340;
-$DarkBlue-800: #232a35;
-$Blue-100: #d3e1ff;
-$Blue-200: #1a2980;
-$Blue-300: #0f2027;
-$Blue-400: #3c5969;
-$Blue-500: #4a6b7c;
-$Blue-600: #6596ff;
-$Blue-700: #1f3a52;
-$Blue-800: #2c5364;
-$BlueGray-300: #f2f5f9;
-$BlueGray-500: #e3e8f0;
+@import "./variables.scss";
+@import "./mixins.scss";
 
 *,
 *::before,
@@ -254,26 +191,7 @@ $BlueGray-500: #e3e8f0;
         @include ipad-s {
           padding: 12px 16px 0 16px;
         }
-        &__timer {
-          display: flex;
-          max-width: 246px;
-          justify-content: space-between;
-          font-size: 18px;
-          padding: 10px 47px;
-          color: #fff;
-          background-color: $DarkBlue-800;
-          border-radius: 9.4px;
-          margin: 0 auto 21px auto;
-          @include pc-s {
-            margin-bottom: 16px;
-          }
-          @include ipad-s {
-            max-width: 137px;
-            font-size: 13px;
-            padding: 8px 16px;
-            margin-bottom: 12px;
-          }
-        }
+        
         &__section {
           display: grid;
           grid-template-columns: repeat(4, 1fr);

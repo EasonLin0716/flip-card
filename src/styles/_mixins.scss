@@ -1,0 +1,53 @@
+@mixin phone-m {
+    @media all and (max-width: 375px) {
+        @content;
+    }
+}
+
+@mixin phone-l {
+    @media all and (max-width: 414px) {
+        @content;
+    }
+}
+
+@mixin ipad-xs {
+    @media all and (max-width: 576px) {
+        @content;
+    }
+}
+
+@mixin ipad-s {
+    @media all and (max-width: 768px) {
+        @content;
+    }
+}
+
+@mixin ipad-m {
+    @media all and (max-width: 1024px) {
+        @content;
+    }
+}
+
+@mixin pc-s {
+    @media all and (max-width: 1280px) {
+        @content;
+    }
+}
+
+@mixin pc-sm {
+    @media all and (max-width: 1440px) {
+        @content;
+    }
+}
+
+@mixin pc-mm {
+    @media all and (max-width: 1536px) {
+        @content;
+    }
+}
+
+@mixin pc-m {
+    @media all and (max-width: 1680px) {
+        @content;
+    }
+}
