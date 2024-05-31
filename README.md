@@ -1,3 +1,5 @@
 # flip-card-game
 
-this project is still under development.
+A flip card game using Vue 3 + TypeScript + Scss
+
+[Demo](https://easonlin0716.github.io/flip-card/)
