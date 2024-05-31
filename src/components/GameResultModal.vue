@@ -55,7 +55,6 @@ defineExpose({
     closeModal,
 });
 </script>
-
 <template>
     <section ref="elRef" class="content-modal">
         <div class="modal-common">
@@ -91,3 +90,126 @@ defineExpose({
         </div>
     </section>
 </template>
+<style lang="scss" scoped>
+@import '../styles/_variables.scss';
+@import '../styles/_mixins.scss';
+@import '../styles/_modal.scss';
+
+.game-result {
+    &__info {
+        margin: 32px 0 40px 0;
+
+        @include ipad-s {
+            margin: 24px 0 32px 0;
+        }
+
+        p {
+            line-height: 1.5;
+            text-align: center;
+            color: $DarkBlue-600;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        &.game-result__info--success p {
+            @include ipad-s {
+                font-size: 20px;
+            }
+        }
+
+        &__invite {
+            display: block;
+            text-align: center;
+            color: $DarkBlue-400;
+            font-size: 18px;
+            line-height: 1.5;
+
+            @include ipad-s {
+                font-size: 16px;
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    &__form {
+        input {
+            width: 100%;
+            max-width: 312px;
+            border: 2px solid $DarkBlue-200;
+            border-radius: 8px;
+            color: $DarkBlue-800;
+            font-size: 18px;
+            padding: 12px 0;
+            text-align: center;
+            margin-bottom: 72px;
+
+            @include pc-sm {
+                margin-bottom: 48px;
+            }
+
+            @include phone-l {
+                margin-bottom: 56px;
+            }
+        }
+
+        label {
+            display: block;
+            text-align: center;
+            color: $DarkBlue-400;
+            font-size: 18px;
+            margin-bottom: 16px;
+
+            @include ipad-s {
+                font-size: 16px;
+                margin-bottom: 12px;
+            }
+        }
+    }
+
+    &__btn {
+        &:before {
+            content: "";
+            display: inline-block;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            border: 0 none;
+            margin-right: 0;
+            transition: all 0.5s;
+        }
+
+        &--black {
+            box-shadow: 0 7px 0 0 $DarkBlue-800 !important;
+            background-color: $DarkBlue-500 !important;
+            color: #fff !important;
+            position: relative;
+
+            &:hover {
+                top: 4px;
+                box-shadow: 0 3px 0 0 $DarkBlue-800 !important;
+            }
+        }
+
+        &.game-result__btn--disabled,
+        &.game-result__btn--loading {
+            pointer-events: none;
+            background-color: $Blue-500;
+            color: #fff;
+            box-shadow: 0 7px 0 0 $Blue-400;
+
+            @include ipad-s {
+                box-shadow: 0 3px 0 0 $Blue-400;
+            }
+        }
+
+        &--loading:before {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #99ccff;
+            border-top-color: white;
+            margin-right: 10px;
+            animation: rotating 1s infinite;
+        }
+    }
+}
+</style>

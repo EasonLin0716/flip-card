@@ -1,0 +1,89 @@
+@import "./variables.scss";
+@import "./mixins.scss";
+
+.content-modal {
+    position: relative;
+    $pcBackgroundWidth: 493px;
+    opacity: 0;
+    display: none;
+    background-color: $gameBoardBgColor;
+    height: 475px;
+
+    &__title {
+        text-align: center;
+
+        img {
+            height: 58px;
+
+            @include pc-mm {
+                height: 46px;
+            }
+        }
+    }
+
+    .modal-common {
+        position: relative;
+        height: 100%;
+
+        @include ipad-s {
+            width: 100%;
+        }
+
+        p {
+            margin-top: 0;
+            color: $DarkBlue-800;
+        }
+
+        span {
+            color: $DarkBlue-300;
+            font-size: 20px;
+            text-align: center;
+            display: block;
+
+            @include phone-l {
+                font-size: 16px;
+            }
+
+            &.btn-note {
+                font-size: 13px;
+
+                @include phone-l {
+                    font-size: 12px;
+                }
+            }
+        }
+
+        button {
+            font-family: "微軟正黑體" !important;
+            position: relative;
+            display: block;
+            background-color: $challengeBgColor;
+            margin: 16px auto;
+            font-size: 24px;
+            font-weight: bold;
+            padding: 10px 29px;
+            border-radius: 26.4px;
+            border: 0;
+            box-shadow: 0 7px 0 0 $Blue-700;
+            cursor: pointer;
+            transition: all 0.2s ease-out;
+            top: 0;
+            color: #fff;
+
+            &:hover {
+                box-shadow: 0 3px 0 0 $Blue-700;
+                top: 4px;
+            }
+        }
+
+        &__wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+    }
+}

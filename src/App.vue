@@ -136,7 +136,6 @@ const getValueWithNumbers = (len: number): Array<number> => {
     return ary;
 }
 </script>
-
 <template>
     <div class="content-memory__play-game">
         <GameTimer :counter="counter" />
@@ -148,3 +147,52 @@ const getValueWithNumbers = (len: number): Array<number> => {
         <LoseGameModal ref="LoseGameModalRef" @replay="startGame" />
     </div>
 </template>
+<style lang="scss" scoped>
+@import './styles/_variables.scss';
+@import './styles/_mixins.scss';
+
+.content {
+    &-memory__play-game {
+        background: linear-gradient(to bottom,
+                #00416a,
+                #2c5364,
+                #3a6073,
+                #667db6);
+        margin: 0 auto;
+        padding-top: 24px;
+        min-height: 100vh;
+
+        @include ipad-s {
+            padding: 12px 16px 0 16px;
+        }
+
+        &__section {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            justify-content: center;
+            max-width: 640px;
+            margin: 0 auto;
+            width: 100%;
+            background-color: $gameBoardBgColor;
+            padding: 24px;
+            border-radius: 8px;
+
+            @include ipad-s {
+                max-width: 520px;
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            @include ipad-xs {
+                padding: 12px;
+                gap: 12px;
+            }
+
+            img {
+                width: 100%;
+            }
+
+        }
+    }
+}
+</style>

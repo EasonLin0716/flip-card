@@ -34,3 +34,80 @@ const cardClickHandler = () => {
         <img v-else :src="props.card.icon" alt="牌面">
     </div>
 </template>
+<style lang="scss" scoped>
+@import '../styles/_variables.scss';
+@import '../styles/_mixins.scss';
+
+@keyframes flipDown {
+    0% {
+        background-color: $Blue-800;
+        transform: rotateY(0deg);
+    }
+
+    100% {
+        background-color: $Blue-700;
+        transform: rotateY(180deg);
+    }
+}
+
+@keyframes flipUp {
+    0% {
+        background-color: $Blue-700;
+        transform: rotateY(180deg);
+    }
+
+    100% {
+        background-color: $Blue-800;
+        transform: rotateY(0deg);
+    }
+}
+
+@keyframes matching {
+    0% {
+        background-color: $Blue-300;
+    }
+
+    50% {
+        background-color: $Blue-300;
+    }
+
+    100% {
+        background-color: $Blue-200;
+    }
+}
+
+.card {
+    aspect-ratio: 1 / 1;
+    background-color: $Blue-700;
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat, no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    padding: 6px;
+    cursor: pointer;
+    border: 6px solid transparent;
+    animation: flipUp 0.5s forwards;
+
+    img {
+        opacity: 1;
+        transition: opacity 0.5s;
+        max-width: 100%;
+        height: auto;
+    }
+
+    &.down {
+        animation: flipDown 0.5s forwards;
+
+        img {
+            opacity: 0;
+        }
+    }
+
+    &.matched {
+        animation: matching 1s forwards;
+    }
+}
+</style>
