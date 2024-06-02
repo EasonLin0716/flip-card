@@ -1,4 +1,4 @@
-import { Card } from "./constants";
+import { Card } from "../constants";
 
 export const shuffleCards = (array: Card[]) => {
   const length = array == null ? 0 : array.length;
