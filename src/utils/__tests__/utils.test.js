@@ -1,5 +1,5 @@
 import { expect, test } from "vitest";
-import { checkMatch, sleep, zeroPrefix, shuffleCards } from "../utils";
+import { checkMatch, sleep, zeroPrefix, shuffleCards } from "..";
 
 test("checkMatch", () => {
   expect(checkMatch({ icon: "a" }, { icon: "a" })).toBe(true);
