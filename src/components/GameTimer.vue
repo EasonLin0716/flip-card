@@ -8,7 +8,7 @@ const props = defineProps<ICounter>();
 </script>
 <template>
     <div class="game-timer">
-        <span>花費時間</span>
+        <label>花費時間</label>
         <span class="tick">{{ props.counter }}</span>
     </div>
 </template>
