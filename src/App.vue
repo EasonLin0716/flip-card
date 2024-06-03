@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, computed, watch, onMounted } from 'vue'
-import { shuffleCards, checkMatch, zeroPrefix } from './utils';
-import { GAME_LIMIT_MINUTE, icons, Counter, Card, PlayState } from './constants';
+import { shuffleCards, checkMatch, zeroPrefix } from './utils/index';
+import { GAME_LIMIT_MINUTE, icons, Counter, Card, PlayState } from './constants/index';
 import GameTimer from './components/GameTimer.vue';
 import ChallengeBtn from './components/ChallengeBtn.vue';
 import GameCard from './components/GameCard.vue';
