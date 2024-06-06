@@ -4,7 +4,11 @@ import modal from "@easonlin0716/js-modal";
 
 const elRef = ref<any>(null);
 
-const emit = defineEmits(['replay']);
+interface Emits {
+    (event: 'replay'): void;
+};
+
+const emit = defineEmits<Emits>();
 
 const handleReplay = () => {
     closeModal();
