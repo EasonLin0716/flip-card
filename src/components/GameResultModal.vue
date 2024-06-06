@@ -62,7 +62,6 @@ defineExpose({
                 <template v-if="resultLevel === 0">
                     <div class="game-result__info game-result__info--success">
                         <p>Wow！挑戰成功</p>
-                        <!-- <p>你花了{{ counter | counterTextFilter }}過關</p> -->
                         <p>你花了{{ props.counter }}過關</p>
                     </div>
                     <div class="game-result__form">
