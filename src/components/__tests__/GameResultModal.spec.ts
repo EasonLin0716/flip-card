@@ -1,6 +1,7 @@
 import { expect, test, describe } from "vitest";
-import { VueWrapper, mount } from "@vue/test-utils";
+import { VueWrapper, mount, flushPromises } from "@vue/test-utils";
 import { Counter } from "../../constants";
+import apis from '../../apis';
 import GameResultModal from "../GameResultModal.vue";
 
 let wrapper: VueWrapper;
@@ -29,4 +30,39 @@ describe("GameResultModal", () => {
         await wrapper.vm.$nextTick();
         expect(wrapper.find('.game-result__form').find('input').element.value).toBe('test');
     });
+    test('button is disabled when nickName is empty', async() => {
+        wrapper = mount(GameResultModal);
+        expect(wrapper.find('.game-result__btn').classes()).contains('game-result__btn--disabled');
+    });
+    test('button is not disabled when nickName is not empty', async() => {
+        wrapper = mount(GameResultModal);
+        (wrapper.vm as TestGameResultModal).nickName = 'test';
+        await wrapper.vm.$nextTick();
+        expect(wrapper.find('.game-result__btn').classes()).not.toContain('game-result__btn--disabled');
+    });
+    test('button is loading when nickName is not empty and button is triggered', async () => {
+        wrapper = mount(GameResultModal);
+        (wrapper.vm as TestGameResultModal).nickName = 'test';
+        await wrapper.vm.$nextTick();
+        await wrapper.find('.game-result__btn').trigger('click');
+        expect(wrapper.find('.game-result__btn').classes()).toContain('game-result__btn--loading');
+    });
+    test('button is not responding when nickName is empty and button is clicked', async () => {
+        wrapper = mount(GameResultModal);
+        await wrapper.find('.game-result__btn').trigger('click');
+        expect(wrapper.find('.game-result__btn').classes()).not.toContain('game-result__btn--loading');
+    });
+    // test('fires "apis.getRecordLevel" and get data.level when button is clicked', async () => {
+    //     jest.spyOn(apis, 'getRecordLevel').mockResolvedValue({ data: {
+    //         nickName: 'test' as string,
+    //         counter: '00:00:01' as string,
+    //         level: 1 as number,
+    //     } })
+    //     wrapper = mount(GameResultModal);
+    //     (wrapper.vm as TestGameResultModal).nickName = 'test';
+    //     await wrapper.vm.$nextTick();
+    //     await wrapper.find('.game-result__btn').trigger('click');
+    //     await flushPromises;
+    //     expect(apis.getRecordLevel).toHaveBeenCalled();
+    // });
 });

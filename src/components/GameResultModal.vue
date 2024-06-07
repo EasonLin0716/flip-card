@@ -23,6 +23,7 @@ watch(nickName, (newVal: string, oldVal: string) => {
 });
 const handleSubmit = async () => {
     try {
+        if (nickName.value.trim() === '') return;
         isLoading.value = true;
         const requestPayload: GetRecordLevelRequestPayload = {
             nickName: nickName.value,
