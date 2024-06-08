@@ -1,11 +1,8 @@
-import { GetRecordLevelRequestPayload } from "../constants";
-type GetRecordLevelResponse = {
-  data: {
-    nickName: string;
-    counter: string;
-    level: number;
-  };
-};
+import {
+  GetRecordLevelResponse,
+  GetRecordLevelRequestPayload,
+} from "../constants";
+
 const sleep = (n: number) => new Promise((resolve) => setTimeout(resolve, n));
 const getRandomNumberByRange = (min: number, max: number) => {
   return Math.floor(Math.random() * (max - min + 1)) + min;
