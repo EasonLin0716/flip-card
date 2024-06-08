@@ -1,10 +1,6 @@
 import { expect, test, describe, vi } from "vitest";
-import { VueWrapper, mount, flushPromises } from "@vue/test-utils";
-import {
-  Counter,
-  GetRecordLevelResponse,
-  GetRecordLevelRequestPayload,
-} from "../../constants";
+import { VueWrapper, mount } from "@vue/test-utils";
+import { Counter } from "../../constants";
 import apis from "../../apis";
 import GameResultModal from "../GameResultModal.vue";
 
