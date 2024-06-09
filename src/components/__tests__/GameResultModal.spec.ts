@@ -8,6 +8,7 @@ let wrapper: VueWrapper;
 
 type TestGameResultModal = InstanceType<typeof GameResultModal> & {
   nickName: string;
+  resultLevel: number;
 };
 
 describe("GameResultModal", () => {
@@ -80,5 +81,14 @@ describe("GameResultModal", () => {
     await wrapper.find(".game-result__btn").trigger("click");
     expect(spy).toHaveBeenCalled();
     expect(apis.getRecordLevel).toHaveBeenCalled();
+  });
+  test("renders 'game-result__info__boarding' div with level when resultLevel is 1", async () => {
+    const MOCK_RESULT_LEVEL = 1;
+    wrapper = mount(GameResultModal);
+    (wrapper.vm as TestGameResultModal).resultLevel = MOCK_RESULT_LEVEL;
+    await wrapper.vm.$nextTick();
+    expect(wrapper.find(".game-result__info__boarding").text()).toContain(
+      MOCK_RESULT_LEVEL
+    );
   });
 });
