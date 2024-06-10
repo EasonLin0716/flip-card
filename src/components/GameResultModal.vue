@@ -75,7 +75,7 @@ defineExpose({
                 </template>
                 <template v-else>
                     <div class="game-result__info">
-                        <div v-if="resultLevel" class="game-result__info__boarding">
+                        <div v-if="resultLevel <= 5" class="game-result__info__boarding">
                             <label class="game-result__info__invite">你超強，排名第 {{ resultLevel }} 名！</label>
                         </div>
                         <div v-else class="game-result__info__invite game-result__info__boarding">

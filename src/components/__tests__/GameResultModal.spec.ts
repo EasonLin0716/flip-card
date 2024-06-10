@@ -91,4 +91,13 @@ describe("GameResultModal", () => {
       MOCK_RESULT_LEVEL
     );
   });
+  test("renders 'game-result__info__boarding' with other text when ressultLevel is greater than 5", async () => {
+    const MOCK_RESULT_LEVEL = 6;
+    wrapper = mount(GameResultModal);
+    (wrapper.vm as TestGameResultModal).resultLevel = MOCK_RESULT_LEVEL;
+    await wrapper.vm.$nextTick();
+    expect(wrapper.find(".game-result__info__boarding").text()).toContain(
+      "雖然沒進入排行榜，再挑戰一次也不錯！"
+    );
+  });
 });
