@@ -91,7 +91,7 @@ describe("GameResultModal", () => {
       MOCK_RESULT_LEVEL
     );
   });
-  test("renders 'game-result__info__boarding' with other text when ressultLevel is greater than 5", async () => {
+  test("renders 'game-result__info__boarding' with other text when resultLevel is greater than 5", async () => {
     const MOCK_RESULT_LEVEL = 6;
     wrapper = mount(GameResultModal);
     (wrapper.vm as TestGameResultModal).resultLevel = MOCK_RESULT_LEVEL;
