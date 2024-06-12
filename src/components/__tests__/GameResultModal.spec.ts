@@ -1,4 +1,4 @@
-import { expect, test, describe, vi } from "vitest";
+import { expect, it, describe, vi } from "vitest";
 import { VueWrapper, mount } from "@vue/test-utils";
 import { Counter } from "../../constants";
 import apis from "../../apis";
@@ -12,22 +12,22 @@ type TestGameResultModal = InstanceType<typeof GameResultModal> & {
 };
 
 describe("GameResultModal", () => {
-  test('renders a section element with class name "content-modal"', () => {
+  it('should render a section element with class name "content-modal"', () => {
     wrapper = mount(GameResultModal);
     expect(wrapper.find("section").classes()).toContain("content-modal");
   });
-  test("renders success info div when resultLevel is 0", () => {
+  it("should render success info div when resultLevel is 0", () => {
     wrapper = mount(GameResultModal);
     expect(wrapper.find(".game-result__info--success").exists()).toBe(true);
   });
-  test("renders counter with current value with counter prop", async () => {
+  it("should render counter with current value with counter prop", async () => {
     wrapper = mount(GameResultModal);
     await wrapper.setProps({ counter: "00:00:01" as Counter });
     expect(wrapper.find(".game-result__info--success").text()).toContain(
       "00:00:01"
     );
   });
-  test("renders nickName in input value hen nickName is passed", async () => {
+  it("should render nickName in input value hen nickName is passed", async () => {
     wrapper = mount(GameResultModal);
     (wrapper.vm as TestGameResultModal).nickName = "test";
     await wrapper.vm.$nextTick();
@@ -35,13 +35,13 @@ describe("GameResultModal", () => {
       "test"
     );
   });
-  test("button is disabled when nickName is empty", async () => {
+  it("button is disabled when nickName is empty", async () => {
     wrapper = mount(GameResultModal);
     expect(wrapper.find(".game-result__btn").classes()).contains(
       "game-result__btn--disabled"
     );
   });
-  test("button is not disabled when nickName is not empty", async () => {
+  it("button is not disabled when nickName is not empty", async () => {
     wrapper = mount(GameResultModal);
     (wrapper.vm as TestGameResultModal).nickName = "test";
     await wrapper.vm.$nextTick();
@@ -49,7 +49,7 @@ describe("GameResultModal", () => {
       "game-result__btn--disabled"
     );
   });
-  test("button is loading when nickName is not empty and button is triggered", async () => {
+  it("button is loading when nickName is not empty and button is triggered", async () => {
     wrapper = mount(GameResultModal);
     (wrapper.vm as TestGameResultModal).nickName = "test";
     await wrapper.vm.$nextTick();
@@ -58,14 +58,14 @@ describe("GameResultModal", () => {
       "game-result__btn--loading"
     );
   });
-  test("button is not responding when nickName is empty and button is clicked", async () => {
+  it("button is not responding when nickName is empty and button is clicked", async () => {
     wrapper = mount(GameResultModal);
     await wrapper.find(".game-result__btn").trigger("click");
     expect(wrapper.find(".game-result__btn").classes()).not.toContain(
       "game-result__btn--loading"
     );
   });
-  test('fires "apis.getRecordLevel" and get data.level when button is clicked', async () => {
+  it('should fire "apis.getRecordLevel" and get data.level when button is clicked', async () => {
     const spy = vi.spyOn(apis, "getRecordLevel").mockImplementation(() =>
       Promise.resolve({
         data: {
@@ -82,7 +82,7 @@ describe("GameResultModal", () => {
     expect(spy).toHaveBeenCalled();
     expect(apis.getRecordLevel).toHaveBeenCalled();
   });
-  test("renders 'game-result__info__boarding' div with level when resultLevel is 1", async () => {
+  it("should render 'game-result__info__boarding' div with level when resultLevel is 1", async () => {
     const MOCK_RESULT_LEVEL = 1;
     wrapper = mount(GameResultModal);
     (wrapper.vm as TestGameResultModal).resultLevel = MOCK_RESULT_LEVEL;
@@ -91,7 +91,7 @@ describe("GameResultModal", () => {
       MOCK_RESULT_LEVEL
     );
   });
-  test("renders 'game-result__info__boarding' with other text when resultLevel is greater than 5", async () => {
+  it("should render 'game-result__info__boarding' with other text when resultLevel is greater than 5", async () => {
     const MOCK_RESULT_LEVEL = 6;
     wrapper = mount(GameResultModal);
     (wrapper.vm as TestGameResultModal).resultLevel = MOCK_RESULT_LEVEL;

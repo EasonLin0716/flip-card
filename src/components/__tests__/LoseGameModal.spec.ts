@@ -1,4 +1,4 @@
-import { expect, test, describe, beforeEach } from "vitest";
+import { expect, it, describe, beforeEach } from "vitest";
 import { VueWrapper, mount } from "@vue/test-utils";
 import LoseGameModal from "../LoseGameModal.vue";
 
@@ -9,11 +9,11 @@ beforeEach(() => {
 });
 
 describe("LoseGameModal", () => {
-    test('renders a section element with class name "content-modal"', () => {
-        expect(wrapper.find("section").classes()).toContain("content-modal");
-    });
-    test('emits "replay" when replay button is clicked', () => {
-        wrapper.find("button").trigger("click");
-        expect(wrapper.emitted()).toHaveProperty("replay");
-    });
+  it('should render a section element with class name "content-modal"', () => {
+    expect(wrapper.find("section").classes()).toContain("content-modal");
+  });
+  it('should emit "replay" when replay button is clicked', () => {
+    wrapper.find("button").trigger("click");
+    expect(wrapper.emitted()).toHaveProperty("replay");
+  });
 });
