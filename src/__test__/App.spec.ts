@@ -8,6 +8,10 @@ beforeEach(() => {
   wrapper = mount(App);
 });
 
-it("should render a div element with class name 'content-memory__play-game'", () => {
-  expect(wrapper.find("div").classes()).toContain("content-memory__play-game");
+describe("App", () => {
+  it("should render a div element with class name 'content-memory__play-game'", () => {
+    expect(wrapper.find("div").classes()).toContain(
+      "content-memory__play-game"
+    );
+  });
 });
